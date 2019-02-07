@@ -37,9 +37,11 @@ primes(A, B, L, LF) :-
 		)
 	).
 
-prime_partition(N, L) :-
+prime_partition(N) :-
 	primes(1, N, P),
-	findall(X, prime_partition(N, P, [], X), L).
+	prime_partition(N, P, [], L),
+	sort(L, SL),
+	print_list(SL).
 
 prime_partition(N, P, L, LF) :-
 	(
@@ -53,3 +55,16 @@ prime_partition(N, P, L, LF) :-
 		prime_partition(N, T, L, LF)
 		)
 	).
+
+print_list(L) :-
+	L = [H|T],
+	length(T, LEN),
+	(
+		LEN = 0 -> 
+		format('~d', H)
+		;
+		format('~d + ', H)
+	),
+	print_list(T).
+
+print_list([]).
