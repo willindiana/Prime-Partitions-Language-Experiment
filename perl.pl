@@ -4,7 +4,6 @@ use strict;
 use warnings;
 use Scalar::Util qw(looks_like_number);
 
-say("Prime Partitions Program by WIll and Luke");
 say("Please enter a number (enter non-number to exit):");
 while(<STDIN>) {
     if(!looks_like_number($_)) {
