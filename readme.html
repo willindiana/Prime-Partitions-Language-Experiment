@@ -1,0 +1,5677 @@
+**A00 - Comparing Languages**
+
+
+General
+========
+
+For each of your team's implementations, explain the following (where appropriate and applicable):
+
+- details on calling conventions, input and output data formats, limitations, bugs, and special features.
+- negative aspects of your program (limitations, known bugs)
+- positive aspects (extensions, special features)
+- describe your choice of modularization (abstractions), data structures, and algorithms
+- explain anything you did that is likely to be different from what other students may have done
+- justify any design decisions for which the rationale isn't immediately clear
+
+Feel free to modify the structure of this `readme.html` file to fit the current assignment and to fit how you wish to present your findings.
+
+
+Submission
+-----------
+
+
+Create a zip file that contains all of your code, this `readme.html` document, and any additional files of evidence (ex: screenshots).
+
+Use folders to divide up the subparts of your submission.
+For example, your zip file could look like the following:
+
+~~~~
+readme.html
+ada/
+    primepartitions.adb
+    screenshot.png
+go/
+    primepartitions.go
+    screenshot.png
+haskell/
+    primepartitions.hs
+    screenshot.png
+prolog/
+    primepartitions.pl
+    screenshot.png
+python/
+    primepartitions.py
+    screenshot.png
+~~~~
+
+
+
+Student Info
+=============
+
+Your name: Will Kercher
+
+Partner's name (if applicable): Luke Brom
+
+Which language(s) did you use: Ada
+
+Which language(s) did your partner use: Ada, OCaml, Perl, Prolog, Rust and Scheme
+
+Operating system: Ubuntu
+
+Lab computer or your own computer: Lab Computer
+
+TA's or Tutor's name (if received help):
+
+Did you receive help from your instructor? No
+
+
+
+Implementations
+================
+
+
+Language: Ada
+--------------------------------
+
+Ada is an interesting language in that it has many similarities with C.
+I had never used a language that had procedures in addition to functions.
+In implementing the recursive funcitonality of prime_partitions we had issues
+with being able to append to the vector passed in. We fixed this by creating
+a copy of the vector to which we appended the next layer.
+There are no known bugs that we know of other than the spacing of the output
+being non-ideal.
+Positive aspects of our project is that it works and we use vectors to manage
+the partitions. I know of others who use a large array that has the potential
+to be a waste of memory.
+We used vectors in Ada rather than an array because it is easily made larger
+with appended items, while an array would have to be a finite length.
+
+![Ada Screenshot](./ada/screenshot.png)
+
+
+
+Language: OCaml
+--------------------------------
+
+Ocaml was unique in that all the functions we made had to be recursive.
+One thing that I thought was odd was the "@" used to append to a list.
+Also the declaration of types to me did not seem very intuitive.
+Loops were also strange in that we had to define them ourselves.
+Lastly it was neato to only have to "import" Printf.
+The only negative aspect of our program is when a non-integer is inputed
+in order to exit it exits via an exception exit.
+Positive aspects include that it works, and the implementation does not use
+any "hacky" implementation.
+A list was used in order to manage the prime partitions in order to be able
+to resize and append to the structure.
+This implementation I would say is likely very similar to that of others.
+
+![OCaml Screenshot](./ocaml/screenshot.png)
+
+Language: Rust
+--------------------------------
+Rust was unique in that there was a lot of code used to just unwrap and handle
+the integer input that was passed into prime_partitions. Also the declaration
+of variable types is interesting in that the delcaration of i32 is needed to
+specify a 32bit integer.
+The only negative aspect I can think of would be that the exit protocol involves
+the invalid digit exception in the read_line funciton, but that error code is
+handled.
+The positive aspect of our program is that it works and we use a vector in order
+to append and resize.
+Our implementation is similar to that of our ada and perl implementation.
+
+![Rust Screenshot](./rust/screenshot.png)
+
+Language: Perl
+--------------------------------
+Perl is unique in that everyhting is returned in a list and the variables
+need to be inpereted by "shift" the items off the list.
+This Perl implementation is also one of our shorter/cleaner implementations.
+There are no known negative aspects of our program that I am aware of.
+A positive aspect of our implementation is that it works and exits cleanly upon
+the entering of a non integer value.
+This implementation is rather straight forward and similar to that of the
+Python.
+
+![Perl Screenshot](./perl/screenshot.png)
+
+Language: Prolog
+--------------------------------
+
+Prolog is my least favorite language!
+I do have to say that it is neat how it stores return variables and they need
+to be viewed in the results.
+I really hate the ";" that is used in else statements. I find it very
+non-intuitive and hard to read. I also don't like the way Prolog handles type
+declaration. I also don't like that prolog function assignment ":-" looks like a
+penis. It's the same for assignments in Ada. Perhaps that's what the "log" in
+"Prolog" represents.
+A negative aspect of our program is that when you input an integer and want to
+see all of the prime partitions you have to press the ";" key while it poops out
+the next resulting partition one at a time until it runs out of results.
+A positive aspect of our program is that it works and is clean in it's
+execution.
+We use arrays to store the partitions.
+
+![Prolog Screenshot](./prolog/screenshot.png)
+
+Language: Scheme (extra credit)
+--------------------------------
+
+Scheme looks similar to Bash.
+While most of the other languages did not use many "[]" or "()" Scheme does.
+We use a list to store resulting partitions.
+It's nice that we don't have to import anything to do math or input in Scheme.
+No negatives that I know of.
+Positive aspects include that it works.
+This approach was done similar to that of the Python implementation.
+I don't like the lack of returns or clear variable assignments.
+
+![Scheme Screenshot](./scheme/screenshot.png)
+
+
+Assignment Reflection
+======================
+
+Hours to complete assignment: 12
+
+List any other comments below.
+Feel free to provide any feedback on how much you learned from doing the assignment, and whether you enjoyed doing it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+THE TEXAS CHAINSAW MASSACRE
+Screenplay by Brandon Mau & Aubrey Stafford
+Based on a screenplay by
+Tobe Hooper & Kim Henkel
+REVISED FINAL DRAFT
+8/11/03
+
+FADE IN:
+
+ON A DARK SCREEN.
+
+MUSIC RISES as we see a scroll of red lettering rise
+up from the bottom of the screen and disappear into
+the top of the screen. A narrator reads it as it
+does.
+
+		NARRATOR
+On August 20th, 1973, police were dispatched to the
+remote farmhouse of Thomas Hewitt, a former head
+skinner at the local slaughterhouse in Travis County,
+Texas. What they found within the confines of his
+cryptic residence was the butchered remains of 33
+victims, a chilling discovery that shocked and
+horrified a nation in which many still call the most
+gruesome mass murder case of all time. The film that
+you are about to see is the shocking truth of what
+happened to five young friends who were traveling
+down that lonely country highway in Travis County,
+Texas. Now, for the first time, the only known
+survivor of that terrifying day has broken the
+silence, and has come forward to tell the truth of
+what really happened on that deserted road when the
+group suddenly found themselves being stalked by a
+chainsaw wielding madman who would leave a trail of
+blood and terror that would forever be known as The
+Texas Chainsaw Massacre...
+
+Soon after, the CREDITS BEGIN TO ROLL in dark yellow
+lettering as we see
+
+A MONTAGE OF FAST MOVING CLIPS.
+
+The clips are of old and decayed bodies. Other noises
+can be heard in the background, such as screaming,
+laughter, and the buzzing of a loud chainsaw. One
+final scream can be heard as the CREDITS END and we
+
+CUT TO BLACK.
+
+CUT TO:
+
+EXT. TRAVIS COUNTY POLICE STATION_RAINING_NIGHT
+
+SUPERIMPOSE:
+
+AUGUST 20TH, 1973
+
+INT. HALLWAY_TRAVIS COUNTY POLICE STATION_SAME
+
+Doctors and policemen walk around quietly. A single
+policeman turns a corner and heads down another
+hallway. At the end of the hallway is a door. A young
+man wearing a white doctors suit stands next to it.
+The policeman walks towards the door and the young
+man. Then, another police officer steps out and
+stands face-to-face with the first policeman we had
+seen before. They both walk to the side and look back
+at the door.
+
+		POLICEMAN
+So?
+
+		POLICEMAN #2
+Nothing. She's not talking.
+
+		POLICEMAN
+She's not saying anything?
+
+		POLICEMAN #2
+She won't talk to anyone. I doubt you're going to get
+anything out of her.
+
+		POLICEMAN
+I can try. I'm not giving up on this girl. I want all
+the facts. Keep all those damn reporters outside,
+alright? That's your job from now on.
+
+The second policeman nods and walks away. The
+policeman looks back at him and then makes his way
+towards the door. The man standing next opens the
+door for him and the policeman steps inside of it.
+The door slams shut in front of the CAMERA.
+
+INT. OBSERVATION ROOM_(CONT.)
+
+Inside is a single table sitting in the middle of the
+room, along with a single light bulb hanging from a
+cord above it. Sitting at the table is ERIN HARDESTY,
+a young girl of seventeen. She is very pretty and
+smart, but right now, she is shaking severely. Her
+wet hair sits in front of her face...covering it. The
+policeman sits in a chair across from her.
+
+Silence.
+
+		POLICEMAN
+Erin?
+
+Erin looks down, scared. She starts to cry silently.
+
+		POLICEMAN
+Erin, you have to talk to us. You have to tell us
+exactly what happened...
+
+Erin tries to say something but can't. She stutters.
+
+		ERIN
+(crying)
+No...
+
+		POLICEMAN
+Erin, you have to.
+
+		ERIN
+(stuttering)
+I...I...I can't...
+
+		POLICEMAN
+No one's here but us. No one is going to hurt you in
+any way. All I want to know are the facts. Just tell
+me everything that happened. We'll take you home
+after this, I promise.
+
+Erin shakes her head. The policeman sighs. He takes
+out a single tape recorder and sets it on top of the
+table. She looks up and sniffs.
+
+		POLICEMAN
+Please.
+
+Erin looks down and cries. We can tell that the
+policeman is getting very upset. He closes his eyes
+and sighs silently.
+
+		POLICEMAN
+No one's here, Erin...No one's going top hurt
+you...You have to talk to me...
+
+The policeman presses a single button on the tape
+recorder. Erin looks up. She pulls her hair back and
+sets her hands in her lap. She wipes her tears and
+sighs. Slowly, we
+
+FADE TO:
+
+EXT. LONELY COUNTRY ROAD_DAY
+
+SUPERIMPOSE:
+
+AUGUST 18TH, 1973
+
+There is no sound. The sun is larger than the frame
+and white-hot. A long, golden arc sweeps across the
+upper right hand corner; it is the explosive, gaseous
+profile of the sun. There is a burst of light and a
+liquid rope of molten gases arcs into space and then
+slowly, heavily falls back to the sun.
+
+The yellow-white sun nearly fills the frame. There is
+a low, crackling noise. The sun begins to dissolve
+and to become an eye, the purple glazed eye of a dead
+dog. Flies swarm the staring eye and the crackling
+noise becomes the buzzing of the flies.
+
+In the extreme foreground and to the right of center
+is the long dead and putrid carcass of a dog. The
+lower jaw, nearly ripped from the head, hangs wildly
+askew. The belly is a living, writhing mass of gray
+maggots; flies swarm the purple, glazed eyes. The
+carcass lies some feet from the shoulder of a narrow,
+chuckhole two-lane highway. It is midday and
+midsummer and the brutal southwestern sun blasts the
+dusty, chocking landscape. The air is still and
+heavy. In the background is the out of focus image of
+a van.
+
+Slowly, it comes closer and closer to the CAMERA.
+Suddenly, it zooms past us very quickly. We stare at
+the empty road for a few seconds. We pan down to the
+dog once again.
+
+INT. VAN_LONELY COUNTRY ROAD_DAY
+
+The van looks much better on the inside than it does
+on the outside. In the back of the van is nothing but
+a collection of old records, an old mattress lying on
+the ground, a cooler, and bottles of half drunken
+water. Behind the back of the mattress lie many bags
+of marijuana and weed.
+
+As we look around, we see five teenagers in the van.
+Sitting in the passenger's seat is ERIN, the same
+girl from the police station, only now, she is
+looking much prettier and cleaned up. She also wears
+a white cowboy hat and eats a small carrot stick.
+
+As we look past at her tie-die t-shirt, we see a
+belly button piercing on her stomach. Driving is her
+boyfriend, KEMPER STERLING, a young, somewhat
+attractive boy of eighteen.
+
+Sitting in the backseat is ANDY PARTAIN, a young boy
+of eighteen. He is a very handsome and smart boy.
+
+In his arms is his girlfriend, PEPPER HARRINGTON, a
+very pretty and smart girl of about his age. Pepper
+sits on top of Andy's lap while they both kiss and
+hug.
+
+Sitting on the floor in the back of the van is Erin's
+brother, MORGAN HARDESTY. He is a very smart and
+handsome boy. The group looks up to him for any help
+that they might need, but he's something of an
+asshole. He reads a magazine while Andy and Pepper
+make their way to the mattress and continue to kiss.
+
+Erin reaches her hand up towards Kemper's face and
+smiles. He grabs her hand and kisses it. She smiles
+and looks into his eyes.
+
+		KEMPER
+Tell me how much you love me.
+
+Erin brings her pointer finger very close to her
+thumb. They are barely touching.
+
+		ERIN
+(laughs)
+This much.
+
+		KEMPER
+Bullshit!
+
+Erin laughs and pretends to stick her tongue out in
+disgust. She widens her fingers.
+
+		ERIN
+This much.
+
+		KEMPER
+(mimics)
+This much?
+
+		ERIN
+That much.
+
+Kemper widens his finger so he can't widen it any
+longer.
+
+		KEMPER
+(laughs)
+This much?!
+
+Erin laughs and pulls down his hand. She holds it and
+looks at him. The both come close to eachother and
+close their eyes. They kiss. Morgan stands up and
+reaches his hand over to the air conditioning,
+pulling Erin and Kemper apart.
+
+		ERIN
+Morgan you ass!
+
+		MORGAN
+What? It's hot in here. I'm just trying to get a
+little cool.
+
+		KEMPER
+I'm afraid the air conditioning won't help. It's like
+hell out there.
+
+		ERIN
+(to Morgan)
+Well could you do it when Kemper and I are not so
+close together, please?
+
+		MORGAN
+That would be impossible.
+
+Morgan grabs Erin's carrot sticks and bites it. He
+smiles and shows his gleaming white teeth. Erin
+smacks him. He sits back down and goes back to
+reading his book. He looks up from his book at Andy
+and Pepper, who seem to be enjoying themselves.
+Pepper pulls herself away from Andy and they both
+breathe hard. They are covered in sweat. Pepper
+smiles while Andy leans on his side.
+
+		PEPPER
+(breathing hard)
+You...are...incredible.
+
+		ANDY
+(also breathing hard)
+This is the first breath I've taken since this trip
+began...You are a sex machine.
+
+		PEPPER
+I take pride in my work.
+
+They both lie down on their sides and look into
+eachother's eyes.
+
+		PEPPER
+Tell me you love me.
+
+		ANDY
+You mean you haven't gotten tired of it yet?
+
+Pepper puts her pointer finger on Andy's lips and
+laughs.
+
+		PEPPER
+Nope.
+
+She pulls her finger away. He smiles and looks at her
+once again. A long moment of silence.
+
+		ANDY
+I love you.
+
+		PEPPER
+(smiles)
+I know.
+
+Andy and Pepper laugh and giggle. Andy smiles and
+comes closer to her. Soon, they are kissing again.
+Pepper moves on top of Andy and starts to giggle. She
+starts to kiss him all over. Morgan looks over at
+them and rolls his eyes. He continues to listen to
+Pepper giggle, and then reaches over to the radio and
+turns it on, hitting the song Whatever Gets You
+Through the Night by John Lennon. He sits back and
+starts to read his book.
+
+		KEMPER
+Maybe Andy and Pepper could sit up here and drive and
+we could have a chance back there.
+
+Erin smiles and holds his hand.
+
+		ERIN
+You wouldn't stop.
+
+		KEMPER
+That's just how I work.
+
+		ERIN
+You're telling me you have batteries inside you or
+something?
+
+		KEMPER
+Something like that.
+
+		ERIN
+Maybe on the next pit stop.
+
+Kemper brings her hand up to his mouth and kisses it.
+
+		MORGAN
+Which will be when exactly?
+
+		KEMPER
+As soon as we find a town. Just calm down, okay?
+You've been complaining ever since this trip began.
+
+		MORGAN
+Maybe that's because we have no ice or water. Just a
+couple of horny teenagers.
+
+Andy sits up and takes a deep breath.
+
+		ANDY
+Whoa...Maybe we do need a pit stop. I need water just
+as the next guy in here.
+
+		PEPPER
+(fanning herself)
+Tell me about it. This guy can go on for hours.
+
+Andy winks and holds her hand. She smiles and he
+growls. Everyone laughs, even Morgan. He rolls his
+eyes. Andy and Pepper continue to kiss.
+
+		MORGAN
+Can we hurry it up, please? I need to make it to
+Mexico before eight.
+
+		KEMPER
+Morgan, will you calm down? Everything is going to be
+fine. There has to be a town around here somewhere.
+We can stop; get some drinks, ice, and gas.
+
+		ERIN
+Morgan, we'll make it in time okay. In the meantime,
+why don't you smoke some of that yourself?
+
+		MORGAN
+You know, that's not such a bad idea. Anyone want
+some?
+
+Andy, while still kissing Pepper, waves his hand in a
+"no thank you". Erin shakes her head. Morgan looks at
+Kemper who shrugs. Morgan rolls his eyes and makes
+his way to the back of the mattress. He ignores Andy
+and Pepper and grabs one of the full bags.
+
+		ERIN
+We need gas?
+
+		KEMPER
+It's almost empty.
+
+		ERIN
+Perfect.
+
+		MORGAN
+(O.S.)
+Anyone have a match?
+
+Kemper rolls his eyes and pulls out a packet of
+matches from his pocket and hands them to Morgan.
+
+		MORGAN
+(O.S.)
+Thanks.
+
+		KEMPER
+(sarcastically)
+No problem.
+
+Erin rolls her eyes and leans her head against the
+window.
+
+EXT. VAN_LONELY COUNTRY ROAD_DAY
+
+We watch as the van rolls down the long country road
+and pass a sign that reads:
+
+TRAVIS COUNTY, TEXAS!
+DRIVE SLOW, SEE OUR CITY
+DRIVE FAST, SEE OUR SHERIFF!
+
+As the van disappears up the hill, dust comes flying
+everywhere, even into the CAMERA. We watch as the van
+becomes a small speck.
+
+INT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+Erin leans her head on Kemper's shoulder. He smiles
+and continues driving. We look inside the back of the
+van to see that Morgan is smoking a now rolled up
+paper full of weed. He smiles as smoke fills the air.
+Andy separates from Pepper and fans his hand in the
+air.
+
+		ANDY
+Jesus, Morgan, can't you at least roll down a window
+or something?
+
+		MORGAN
+You do it. I'm too busy.
+
+Andy gives Morgan the finger, who makes a face.
+Pepper sits up and opens the window to the side of
+her. She lies back down and gives Morgan  look. Andy
+sits next to her and smiles.
+
+		ANDY
+Thanks.
+
+		PEPPER
+Anything for my baby.
+
+They smile and kiss. Morgan rolls his eyes and takes
+a huge whiff of the weed. Erin still has her head
+against Kemper's shoulder.
+
+		KEMPER
+I love you.
+
+Erin says nothing, but snuggles closer to him and
+lets out a love-filled sigh.
+
+		MORGAN
+You two make me sick, you know that?
+
+Erin sits up from Kemper's shoulder and grabs
+Morgan's rolled up paper of weed and throws it out
+the window.
+
+		MORGAN
+BITCH!
+
+		ERIN
+The feeling is mutual, shithead.
+
+		MORGAN
+Now, must we resort to name-calling?
+
+		ERIN
+Of course not...we can skip right to the part where I
+beat the crap out of you, if you wish.
+
+		KEMPER
+Talk about sibling rivalry.
+
+		MORGAN
+(ignoring Kemper)
+The day you kick the crap out of me will be the day
+that Pepper takes a vow of celibacy.
+
+		PEPPER
+(from behind the backseat)
+The thought makes my skin crawl. Although, he does
+have a point. Sorry, Erin.
+
+		ERIN
+(to Morgan)
+I could wipe the windshield with you right now, you
+weak-ass little weasel!
+
+		MORGAN
+Oh yeah...I'm the weasel!  (laughing) Look who you
+choose for a boyfriend!
+
+Erin gives Morgan a look of pure venom and, without
+warning, pulls back and punches him in the face,
+causing his lip to bleed.
+
+		ANDY
+(stops kissing Pepper)
+I see that weed has finally knocked some sense into
+you, huh, Morgan?
+
+Morgan gives Andy the finger and sits up. Morgan just
+has a look of pure shock on his face as he reaches
+his hand to the cut on his lip.  Erin seems surprised
+at her actions, also, but she is breathing hard and
+is obviously still angry.  Pepper and Andy have
+separated themselves from each other and are now
+looking open-mouthed from Erin to Morgan and back
+again.
+
+		KEMPER
+Alright, that's it!
+
+Kemper slams on the brakes and the van halts in the
+middle of the road.  Everyone in the van is slammed.
+
+		PEPPER
+What the hell is wrong with you!?
+
+		KEMPER
+(to Morgan)
+Look...if you insist on being an asshole, I suggest
+you pick up your over-inflated ego and lug it back to
+the crack pipe you crawled out of!  It's 200 degrees
+outside, it's God-knows-how-many miles to the nearest
+town and I am not going to sit here and listen to you
+two!
+
+Kemper takes a deep breath and continues, while Erin
+lowers her eyes and Morgan's smirk returns to his
+face.
+
+		KEMPER
+(in a calmer tone)
+Now, I want you both to just...ignore eachother until
+we get to a town.  (turns to Andy and Pepper) And you
+two can...get back to business.
+
+Andy and Pepper look at eachother, smile and begin to
+kiss passionately, soon disappearing again behind the
+back seat.  Erin turns back around to look through
+the windshield and Morgan tries to nurse his lip as
+well as he can with a greasy napkin. Erin turns
+around to look at Morgan.
+
+		ERIN
+I'm sorry, Morgan.
+
+		MORGAN
+I'm sure you are.
+
+		ERIN
+I am, I don't know what I was thinking.
+
+		MORGAN
+You never do.
+
+		ERIN
+What the hell is that suppose to mean?
+
+		MORGAN
+There's nothing in that small head of yours.
+
+		ERIN
+Do you want me to hit you again?
+
+		MORGAN
+Stay the fuck away from me.
+
+Erin looks ahead out into the road and leans her head
+against the window. Morgan shakes his head and pulls
+the napkin away from his mouth. Blood is all over the
+napkin. He sighs.
+
+		KEMPER
+You know, I think I might need some of that weed
+right about now.
+
+Silence.
+
+Andy pulls away from Pepper and looks into her eyes.
+
+		ANDY
+Would you really take a vow of celibacy?
+
+		PEPPER
+Andy, do I look like I'm the kind of person who would
+do that? I mean...especially when you love...
+
+Pepper reaches her hand over to Andy's ass and
+squeezes it.
+
+		PEPPER
+(cont.)
+...This?
+
+Andy laughs and growls as Pepper pulls herself back
+towards Andy, kissing him again. She moves on top of
+him and messes with his hair. They both smile and
+laugh.
+
+		MORGAN
+I am officially nauseated.
+
+Erin rolls her eyes and looks ahead to see an open
+road, full of dirt and rocks.
+
+		KEMPER
+(sighs; sarcastically)
+Have you ever seen anything so beautiful?
+
+		ERIN
+(huffs)
+If I could only see this every single day of my life.
+
+		MORGAN
+I'd rather blow my brains out.
+
+		ERIN
+That might come sooner than you think.
+
+		MORGAN
+Just hurry up and drive the car. I need to get to
+Mexico soon.
+
+		ERIN
+Why are you in such a hurry?
+
+		MORGAN
+Do you know how much all this is worth? I'll be
+living in style!
+
+		ERIN
+Not when I tell mom and dad the real reason why you
+went on this trip.
+
+		MORGAN
+You were in on it, too.
+
+		ERIN
+I was not!
+
+		MORGAN
+You cam along, and that's all that matters!
+
+		KEMPER
+You want another fat lip? Sit back and relax.
+
+Morgan sighs and leans back. As Erin looks ahead out
+the windshield, she sees a young girl of about their
+age walking down the side of the road, wearing a very
+dirty flower dress. She hugs herself and cries.
+
+		ERIN
+Hey...hey, look...
+
+		KEMPER
+Oh my god...Should we pick her up?
+
+		MORGAN
+Hell no. We're already late. Just keep driving.
+
+		ERIN
+Morgan, do you always just think about yourself?
+
+		MORGAN
+No, I just want to get there on time so I can collect
+my money.
+
+		ERIN
+Money's not an option right now, Morgan.
+
+		KEMPER
+We wouldn't make it anyway. The gas is low.
+
+		ERIN
+Pull over and pick her up.
+
+Erin rolls down her window and pokes her head out.
+The rest of them look out their windows.
+
+EXT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+The girl continues to walk down the road, not even
+looking up.
+
+		ERIN
+Hey, are you okay?
+
+The girl shakes her head without looking up. Erin
+looks at Kemper, who nods.
+
+		ERIN
+Can we give you a ride?
+
+		GIRL
+I don't know where I'm going...
+
+		ERIN
+Do you live anywhere near here?
+
+		GIRL
+No...
+
+		ERIN
+Well, we could at least give you a ride. You look
+exhausted. Come on in, we'll take you wherever you
+want to go.
+
+Pepper slides open the side of the van. The girl
+looks up and stays silent for a second, then, she
+climbs into the van. The door slides shut and the van
+continues to make its way down the road.
+
+INT VAN_LONELY COUNTRY ROAD_(CONT.)
+
+Kemper continues to drive while Erin looks back at
+the girl, who sits on the mattress, crying and
+rocking back and forth.
+
+		PEPPER
+What's your name?
+
+		GIRL
+Jane...
+
+		PEPPER
+Hi, Jane. I'm Pepper. And this is Andy, Morgan,
+Kemper, and Erin.
+
+Erin smiles and waves. Everyone says hi to her except
+for Morgan. He rolls his eyes and looks down at his
+book.
+
+		PEPPER
+We can take you wherever you want to go.
+
+		JANE
+I don't know where I want to go...I just want to get
+out of here...
+
+		PEPPER
+If you don't mind me asking, what happened to you?
+Why were you out here alone?
+
+		JANE
+I...I wasn't alone...
+
+		PEPPER
+Well then...Who were you with?
+
+		JANE
+My friends...
+
+		PEPPER
+Where are your friends?
+
+Jane looks down and starts to cry again. Andy reaches
+over and hands her a soft napkin. She wipes her
+tears.
+
+		JANE
+They're all dead...
+
+Erin looks at Kemper, who looks back at Jane. He
+turns his head to Erin, and they both look into
+eachother's eyes for a moment.
+
+		ERIN
+Who...um...who killed them?
+
+		JANE
+I...I don't know...
+
+		KEMPER
+What are we suppose to do now?
+
+		ERIN
+Just keep driving. If she was out here then there has
+to be a gas station or house or something out
+here...It can't be that deserted.
+
+		KEMPER
+I wouldn't be so sure about that. I mean, look
+around...
+
+Kemper looks ahead and sees a sharp turn ahead. He
+decides to take it and suddenly turns into it. Ahead
+of him are still nothing but dirt, grass, and old
+trees.
+
+		MORGAN
+I'm not gonna make it...This is fucking perfect. I
+came on this stupid trip for nothing. I sure as hell
+didn't come on this trip to see four teens get off.
+Especially one with such an airless head.
+
+		ERIN
+You're the one who's stoned all the time! You want me
+to punch you again, don't you?!
+
+		MORGAN
+Don't fucking touch me!
+
+		KEMPER
+Then shut up, Morgan! I've had it with you two.
+
+		ERIN
+(to Kemper)
+I'm sorry.
+
+Erin leans in and hugs Kemper. In the back, we see
+Andy come and sit next to Morgan.
+
+		ANDY
+You could at least pretend to be a little nice on
+this trip.
+
+		MORGAN
+You'd have to kill me.
+
+		ANDY
+That'll be easy.
+
+Morgan gives Andy a look of venom.
+
+		ANDY
+I bet you have never even experienced physical
+pleasure, have you, Morgan?
+
+		MORGAN
+What's your point?
+
+		ANDY
+I'm just saying I wouldn't be talking if I were you.
+(makes his way back towards Pepper) Virgin.
+
+Morgan smirks. Pepper rubs Jane's back as she begins
+to cry again. Jane covers her ears and rocks back and
+forth.
+
+		JANE
+He's a bad man...
+
+		PEPPER
+Who?
+
+		ANDY
+What are you talking about, Jane? You need to talk to
+us.
+
+Jane doesn't speak. She moves to the back of the van,
+up against the back window. Pepper moves up to the
+front of the van.
+
+		PEPPER
+I don't know what we should do.
+
+		ERIN
+We need to find someone.
+
+		KEMPER
+That's not gonna happen. This van is going to stop
+any second.
+
+		MORGAN
+It better not! I knew we should have taken my van! I
+fucking new it! What the hell are we suppose to do
+with the girl?
+
+		KEMPER
+We'll take he as far as she needs to go.
+
+		MORGAN
+Which will be right here. Stop the van and let her
+out.
+
+		ERIN
+Morgan!
+
+		MORGAN
+What!?
+
+Erin smirks at Morgan, who rolls his eyes.
+
+		MORGAN
+And then?
+
+		KEMPER
+And then find someway to get home.
+
+		MORGAN
+You mean...we're not going to Mexico?
+
+		KEMPER
+No, we're not.
+
+		MORGAN
+Jesus, Kemper! I came all the way on this trip for
+this shit? This is bull.
+
+		ERIN
+Morgan, I really think that Jane is a little more
+important than some stupid weed.
+
+		MORGAN
+(whisper)
+Stupid weed my ass.
+
+Erin turns back towards Kemper, who looks at the gas
+gauge once again.
+
+		ERIN
+So...?
+
+		KEMPER
+Shit...
+
+		ERIN
+What?
+
+EXT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+Slowly, we watch the van as it pulls over to the
+dirt. Slowly, the engine stops, and it is silence. We
+pan up from a  sky view of the van as it lies
+perfectly still.
+
+INT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+We watch as everyone looks around. Kemper puts his
+head on the wheel, smacking his head against it.
+
+		ANDY
+What happened?
+
+		KEMPER
+The van's down.
+
+		ANDY
+What does that mean?
+
+		KEMPER
+We need gas, that's what it means.
+
+		MORGAN
+Damnitt!
+
+		PEPPER
+How long do you think until we can find someone?
+
+		KEMPER
+I don't know. It's best of we all get out and look
+for help.
+
+		ERIN
+I'll come with you.
+
+Kemper and Erin step out of the van, leaving us with
+Andy, Morgan, Pepper, and Jane.
+
+Silence...
+
+		MORGAN
+I'm not staying in here with you three. Excuse me.
+
+Morgan slides open the side of the door and pops out.
+He slams it shut. Pepper looks at Jane and Andy.
+
+		PEPPER
+Look, I think we should go look for help, too. That
+way we can double our chances of actually finding
+someone.
+
+		ANDY
+I think so, too. Jane? You wanna come with us?
+
+Jane shakes her head and moves towards the corner of
+the van. Pepper slides open the door and steps out,
+followed by Andy. He looks back at Jane, who still
+hides in the corner. He shrugs and slams the door
+shut.
+
+Jane watches as they all start to walk away. She
+presses her hand against the glass and starts to cry
+again.
+
+		JANE
+You're all gonna die...
+
+The CAMERA zooms in on her slowly and we suddenly
+
+CUT TO:
+
+EXT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+The group stands alone, wondering what to do.
+
+		KEMPER
+I think we should go in groups. I'll go with Erin and
+Andy can go with Pepper. Morgan-
+
+		MORGAN
+I work better alone.
+
+		ERIN
+That's for sure.
+
+Morgan smirks at Erin, who puts her hands in her back
+pocket.
+
+		KEMPER
+Okay. We'll all meet back here in about an hour or
+so.
+
+They all nod and walk off in different directions. We
+watch as they all disappear into the vast, empty
+field. The CAMERA pans up to the hot blazing sun as
+we slowly
+
+FADE TO:
+
+INT. DARK ROOM_DAY
+
+We pan around the room to see old cans, water
+dripping from the ceiling, old collections of
+records, old dolls, some with no eyes, and just many
+different kinds of old antiques that look like they
+were never taken care of. As we pan around, we pull
+into a long stairway, which lead into more darkness.
+We hear distant screams in the background. Suddenly,
+a young, wet girl of twenty runs out from behind the
+stairs! She runs up them and heads towards an open,
+dirty sliding door. She steps out of it and slides
+it, leading herself into a
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+The girl stands still, and suddenly slams the sliding
+door shut. From the outside, there are no handles or
+anything else that can be seen to open it, just a
+small circular peephole in the middle of the door.
+The girl looks around and pants, wondering what to
+do.
+
+She stands still as she hears loud footsteps making
+their way up the stairs. The girl runs towards a
+closed door and tries to open it, but can't. She
+looks around and sees a flight of stairs leading to
+the second floor. She looks back at the sliding door,
+and then runs up the stairs, disappearing into a
+sharp corner. Large footsteps can be heard making
+their way towards the long flight of stairs.
+
+INT. DARK ROOM_UPSTAIRS_OLD HOUSE_(CONT.)
+
+The girl walks around the room, trying to find a
+place to hide. She looks around and finds nothing.
+More footsteps can be heard. She pears outside a
+slight crack to see two large boots walk past the
+door and search somewhere else. The girl sighs and
+looks behind her, only to see a window covered in
+wood planks. She cries and leans up against the door.
+A few seconds pass. She stands up and looks through
+the crack. Nothing is there. She slowly opens the
+door and steps into the
+
+INT. HALLWAY_UPSTAIRS_OLD HOUSE_(CONT.)
+
+The girl looks around, but sees nothing. We follow
+her to the stairs, were she slowly starts to walk
+down them step by step. A small crack can be heard,
+and she looks up, but no one is there. She sighs and
+closes her eyes. She continues to walk down the
+stairs until she reaches the front door. She tries to
+open it, but can't.
+
+		GIRL
+Shit...
+
+She tries to unlock the door, but it is budged tight.
+She looks behind her, seeing if she can find anything
+to break open the lock. She hesitates, but can't find
+anything. She looks to the sliding door, which stays
+silent. She walks down the hallway, turning a corner
+into the
+
+INT. KITCHEN_OLD HOUSE_(CONT.)
+
+The kitchen is old, but the girl doesn't seem to
+notice. She opens a small drawer and pulls out a long
+knife. She looks at it and then turns around after
+hearing a small noise. She walks quietly towards the
+open door, raising the knife high. As she makes her
+way towards the door, she looks around, but sees
+nothing but the same old thing.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+The girl slowly walks down the hallway, looking back
+every second. Her eyes are focused on the front door.
+
+She sighs and walks towards the closed door.
+Suddenly, she turns around after hearing a loud
+noise. A large figure wearing a strange, leather-like
+mask pops out from behind the sliding door! The girl
+screams and runs towards the closed door. She swings
+the knife at the lock, but nothing happens, and the
+knife suddenly drops. The man, LEATHERFACE, runs
+after her, screaming himself. He grabs her by the
+waist and holds her up. She screams and kicks wildly
+as he pulls her through the sliding door. As she
+screams, the door suddenly slams shut and there is
+pure silence.
+
+INT. DARK ROOM_OLD HOUSE_(CONT.)
+
+We pull down the stairs and move across the old
+collectables and the dripping water. We pan around
+the room to see an old furnace, a table full of
+weapons of destruction, and water dripping
+everywhere. We pan into another room where we see
+Leatherface still holding the girl, making his way to
+a large hook which lies in the middle of the air hung
+onto by a wire from the ceiling. The girl continues
+to scream as Leatherface sticks her on the hook from
+her back! She screams wildly as we
+
+CUT TO:
+
+EXT. OLD HOUSE_FIELD_DAY
+
+We continue to hear the screams in the background as
+we see a very old large two-story house surrounded by
+old trees and no neighbors. The screams suddenly fade
+as we see a young hippie of the same age of the girl
+start walking towards the house.
+
+		HIPPIE
+Marilyn? You there?
+
+The hippie finally makes his way to the
+
+EXT. PORCH_OLD HOUSE_(CONT.)
+
+The hippie sighs and knocks on the door, which still
+remains closed.
+
+		HIPPIE
+Hello? Is anyone home?
+
+Silence. Just as the hippie starts to walk away from
+the house, we hear a loud bang in the backyard. The
+hippie stops and slowly makes his way into the
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+As the hippie makes his way further into the
+backyard, where he sees a large laundry wire hanging
+in mid air, covered by dry sheets. He walks around,
+losing himself in the sheets.
+
+		HIPPIE
+Marilyn? Where are you? Stop goofing on me!
+
+Suddenly, the buzz of a chainsaw can be heard and the
+boy turns around to see Leatherface, standing in
+front of him, holding a chainsaw in the air! The
+hippie screams as we
+
+CUT TO BLACK.
+
+EXT. FIELD_LONELY COUNTRY ROAD_DAY
+
+We watch as Erin and Kemper walk through the fields,
+holding hands and looking around.
+
+		ERIN
+I don't know why we're even looking out here, I mean
+clearly there is no one here...
+
+		KEMPER
+We have to keep looking. For Jane's sake.
+
+		ERIN
+What the hell was she talking about in there? Who
+killed her friends?
+
+		KEMPER
+I don't know...But she was obviously traumatized by
+the whole thing. I think we should just find a phone
+and call the police.
+
+		ERIN
+If we find anyone.
+
+Erin sighs as she suddenly pears through the fields
+to see a large two-story house...the same old house
+from before.
+
+		ERIN
+Hey...
+
+		KEMPER
+What?
+
+Erin pushes through the fields, letting go of
+Kemper's hand and making her way towards the house.
+Feet away from the house, she stops, letting Kemper
+catch up to her.
+
+		ERIN
+This is unbelievable.
+
+		KEMPER
+Who would build a house all the way out here?
+
+		ERIN
+Let's just go and call the police.
+
+Erin and Kemper walk slowly towards the house and
+quickly reach the
+
+EXT. PORCH_OLD HOUSE_(CONT.)
+
+This time, the door is open, but the screen door is
+closed. Kemper knocks to the side of the door and
+waits. There is no response. Erin pears inside but
+sees nothing. Kemper knocks again, but there is still
+no response.
+
+		KEMPER
+(into screen)
+Excuse me?
+
+		ERIN
+(into screen)
+Is anyone home?
+
+		KEMPER
+(into screen)
+Hello?
+
+Erin pears into the house again but continues to see
+nothing. Old music can be heard in the background. A
+record player can be seen in a distant room.
+
+		ERIN
+Somebody has to be home.
+
+		KEMPER
+It's out in the middle of nowhere.
+
+They sigh.
+
+		ERIN
+Just go and get the others and I'll stay here.
+
+		KEMPER
+You sure?
+
+		ERIN
+Yeah, I'm sure.
+
+		KEMPER
+You don't have to do this. I'll wait with you.
+
+		ERIN
+Kemper, just go get the others. I'll be fine.
+
+Kemper reaches over and kisses Erin's cheek. She
+moves her head so that he kisses her lips. She smiles
+as he walks away. Soon, he disappears through the
+field. She sighs and looks back inside the house.
+
+		ERIN
+Hello?
+
+Silence.
+
+		ERIN
+We need help...Is anyone here?
+
+More silence. Erin reaches over and opens the screen
+door, walking inside the
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+The screen door suddenly slams shut. She jumps and
+turns around. She rolls her eyes and laughs. She
+turns back around and walks slowly down the hallway,
+seeing all sorts of collectables and records lying
+all over the place.
+
+		ERIN
+Hello?
+
+Silence.
+
+She walks down the hallway and into the
+
+INT. DINING ROOM_OLD HOUSE_(CONT.)
+
+There is a long wooden table sitting in the middle of
+the table, complete with old candles and seats fit
+for six. She walks through the dining room and sees
+another swinging door behind the table. She slowly
+walks over to it and opens it, revealing the
+
+INT. KITCHEN – OLD HOUSE – (CONT.)
+
+It is the same as we had last seen it. Dirty dishes
+can be seen all over. Feathers can be seen all over
+the ground. Erin cringes and walks around, looking
+above her to see different sorts of bones hanging
+from the air by string. She opens her mouth and
+covers it with her hand. She coughs and makes her way
+through another open door, leading her back into the
+
+INT. HALLWAY – OLD HOUSE – (CONT.)
+
+There is nothing in front of her but the same old
+hallway leading towards the open door. As she turns
+around, she sees the closed sliding door complete
+with the peephole. She knocks on it, revealing an
+echo. She puts her ear up against it and knocks
+again.
+
+		ERIN
+Hello?
+
+Nothing. She sighs turns around, walking back down
+the hallway. Beside the stairs is another open
+doorway, which leads to another empty room. She
+ignores it and looks up the stairs. She sighs and
+starts to walk up it very slowly.
+
+EXT. FIELD_LONELY COUNTRY ROAD_(CONT.)
+
+Andy and Pepper can be seen walking around, looking
+for someone. They stop.
+
+		ANDY
+This is hopeless.
+
+		PEPPER
+We have to keep looking. Please, Andy?
+
+Andy stops and looks into her eyes.
+
+		ANDY
+Okay...
+
+The smile and kiss. Slowly, they fall onto the field
+and laugh.
+
+EXT. FIELD_LONELY COUNTRY ROAD_(CONT.)
+
+We watch Morgan walk around the field, sighing and
+rolling his eyes. A small noise can be heard from
+behind him. He stops in his tracks and turns around.
+
+Silence.
+
+		MORGAN
+Hello?
+
+Nothing. The field sways back and forth from the
+wind.
+
+		MORGAN
+Kemper? Get your cheep ass out here.
+
+Silence. Morgan looks around and then continues
+walking. Suddenly, he bumps right into
+
+KEMPER!
+
+Morgan jumps and steps back. They both breathe
+deeply.
+
+		MORGAN
+Kemper, you ass.
+
+		KEMPER
+Don't give me that right now, Morgan. Erin found a
+house. Let's go find Andy and Pepper.
+
+Morgan rolls his eyes as they both walk off into the
+field.
+
+EXT. FIELD_LONELY COUNTRY ROAD_(CONT.)
+
+Andy and Pepper lie down on the ground, kissing
+passionately. Suddenly, they are covered with shadows
+as they both look up to see Kemper and Morgan staring
+at them.
+
+		MORGAN
+Is that the only thing you guys do?
+
+Andy smirks as he helps himself and Pepper up.
+
+		KEMPER
+Erin and I found a house back in the field. Erin's
+there looking for a phone. I told her I'd come back
+and get you guys and Jane.
+
+		MORGAN
+Who cares about Jane?
+
+		PEPPER
+I'll go get Jane. Just point of the direction of the
+house.
+
+		KEMPER
+(points)
+It's that way. But you better hurry.
+
+		PEPPER
+(walking away)
+Will do!
+
+Kemper walks away with Andy and Morgan as we watch
+Pepper walk back towards the van.
+
+INT. UPSTAIRS_OLD HOUSE_(CONT.)
+
+Erin walks around, looking for any person she can
+find. She hears a slight noise from downstairs and
+quickly runs down the stairs, making her way towards
+the
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Erin looks around, but sees nothing but the same old
+thing.
+
+		ERIN
+Hello? Is anyone here?
+
+Silence. She sighs.
+
+EXT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+Pepper finally makes her way to the van and slowly
+opens it.
+
+		PEPPER
+Great news, Jane, Erin found a-
+
+No one is in the van. Pepper looks around, but sees
+nothing. She looks around the field, but doesn't see
+Jane anywhere.
+
+		PEPPER
+Shit...
+
+She slides the door shut and makes her way back
+towards the field.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Erin slowly walks towards the closed sliding door and
+knocks on it again. There is still nothing. She
+slowly moves her eye towards the peephole and pears
+inside. There is nothing there. She pulls herself
+back and leans her back up against the door. She
+sighs and closes her eyes.
+
+Slowly, we watch as the peephole slowly starts to
+squeak. Erin moves her head back towards the
+peephole. It is the same as it was. She slowly
+continues to pear through the peephole, but there is
+still nothing. We watch her through the other side of
+the door, her eye up against the screen in a circular
+motion. Suddenly, a hand taps her shoulder and she
+screams! She turns back around to see Kemper, staring
+at her and smiling.
+
+		ERIN
+Jesus, Kemper, you scared the shit out of me.
+
+		KEMPER
+I'm sorry...
+
+		ERIN
+Don't worry about it. Find everyone?
+
+		KEMPER
+Pepper's making her way back with Jane. Did you find
+anyone?
+
+		ERIN
+Not even a phone.
+
+		KEMPER
+Let's wait outside.
+
+Kemper and Erin walk outside into the porch as the
+CAMERA slowly moves into the peephole.
+
+EXT. PORCH_OLD HOUSE_(CONT.)
+
+Kemper and Erin walk down the porch stairs to join
+Andy and Morgan, who sit on the last step of the
+porch.
+
+		ANDY
+Find anything?
+
+		ERIN
+It doesn't seem like anyone's home.
+
+		MORGAN
+Figures.
+
+They all look up and see Pepper walking towards them,
+alone. Andy stands up while Kemper and Erin walk
+towards her. Morgan continues to sit down.
+
+		KEMPER
+Where's Jane?
+
+		PEPPER
+She wasn't in the van.
+
+		ANDY
+What?
+
+		PEPPER
+When I went back, no one was in the van. She was
+gone.
+
+		ERIN
+Great...
+
+		ANDY
+Where do you think she is?
+
+		MORGAN
+(O.S.)
+Mexico.
+
+They all ignore him and turn back to Pepper.
+
+		PEPPER
+What are we suppose to do now?
+
+		KEMPER
+We need to find someone first. And if we do, then we
+have to call the cops I guess. It's not safe for Jane
+to be out here alone. Let's all just wait here.
+
+		PEPPER
+Where exactly?
+
+		KEMPER
+Maybe they're in the back. Let's go.
+
+They all walk towards the backyard of the house, even
+Morgan. We pan back to reveal the large house as they
+all disappear into the backyard.
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+They all pass the blowing sheets and walk all the way
+towards the back of the yard. It is a mess. There is
+a row of old cars sitting in the backyard, all warn
+out and from the forties.
+
+		ERIN
+Oh my god...
+
+		KEMPER
+They sure are collectors aren't they?
+
+Erin walks towards the cars, followed by Morgan and
+Kemper. Pepper walks over to an old Volkswagen and
+pears inside of it. It is very dirty and smelly, from
+the look of Pepper's face.
+
+		PEPPER
+(covers her nose)
+Oh my god...
+
+		KEMPER
+Do you think any of them start?
+
+		MORGAN
+I highly doubt that.
+
+Erin looks around and passes a large row of tires,
+making her way towards a very large black truck. She
+looks inside of it and then looks around some more,
+passing more cars. Pepper walks away from the cars
+and makes her way towards a large opening in the back
+of the house, a greenhouse if you will.
+
+There is no door, and it is very dusty and black.
+Pepper doesn't look inside of it, she just sits down
+on the nearest log. She covers her forehead and
+sighs.
+
+		PEPPER
+I guess we just have to wait here.
+
+		ERIN
+I'm going back in there as soon as I can. I know
+there's a phone in there. I can feel it.
+
+		MORGAN
+Than get in there and call the cops so we can get our
+car fixed.
+
+		ERIN
+Do you only think of yourself, Morgan?
+
+		MORGAN
+The only two things I care about in this world are my
+drugs and I.
+
+Erin gives him the finger and continues to walk
+around.
+
+		ANDY
+Smooth, Morgan. Smooth.
+
+Morgan huffs and rolls his eyes. He sits near Pepper
+on a small wooden chair. Andy walks over to Pepper.
+She stands up and holds him. She puts her head
+against his chest.
+
+		PEPPER
+So what do we do now?
+
+		ANDY
+Like you said...Wait I guess.
+
+		PEPPER
+That really stinks.
+
+		ANDY
+Why's that?
+
+Pepper looks into his eyes and smiles.
+
+		PEPPER
+Because I'm in the mood.
+
+Andy smiles as the both come together and kiss. They
+both olds eachother's hands.
+
+		ANDY
+Why don't we go...
+
+Andy points his head to the old house. Pepper smiles.
+
+		PEPPER
+Are you sure no one's home?
+
+		ANDY
+Erin said she didn't see anyone.
+
+Pepper bites her lip and smiles. She tugs at Andy's
+arm.
+
+		ANDY
+Um...we're going to go look around more. We'll be
+back later.
+
+Pepper giggles as they disappear around the corner.
+
+		MORGAN
+You know that they're not really going to look
+around, right?
+
+Erin looks at Kemper and sighs.
+
+INT. HALLWAY_OLD HOUSE_SECONDS LATER
+
+Andy and Pepper open the screen door and step inside.
+
+		ANDY
+Wow...
+
+		PEPPER
+It's really old...
+
+		ANDY
+Let's go upstairs.
+
+Andy starts to walk upstairs, Pepper in hand. They
+both look around and continue to make their way up
+the stairs. They finally make it up the stairs and
+turn a sharp corner, making their way into a dark
+room.
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+Erin sits on the old log like Pepper was and covers
+her forehead. Kemper stands next to her while Morgan
+continues to sit on the small wooden chair.
+
+		KEMPER
+How long are they going to be in there?
+
+		ERIN
+Knowing them, forever.
+
+		MORGAN
+No shit.
+
+INT. DARK ROOM_UPSTAIRS_OLD HOUSE_(CONT.)
+
+Andy and Pepper lie on a dirty bed. They both smile
+and start to kiss.
+
+		PEPPER
+So what do you want to do first?
+
+		ANDY
+You mean I get to decide?
+
+		PEPPER
+Yep.
+
+Andy smiles and pulls Pepper towards him. They kiss
+passionately.
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+Erin stands up and is about to walk away when a black
+FIGURE runs across the dark greenhouse. She jumps and
+Morgan stands up.
+
+		KEMPER
+What?
+
+		MORGAN
+What's the he'll is wrong with you?
+
+		ERIN
+I...I...(pointing) I just saw something...
+
+		KEMPER
+That's impossible. No one's here...Are they?
+
+Erin slowly steps inside the room, seeing a bunch of
+old furniture and other sorts of dirty and old
+material. Morgan looks around as well. He makes his
+way to a large cupboard and looks down to see a small
+jar rolling its way towards him. He stops it with his
+foot and picks it up. Inside is a single picture of
+Jane. Also inside the jar seems to be green water,
+the color of pickle juice.
+
+		MORGAN
+Hey, guys...Come look at this...
+
+Erin and Kemper walk over to Morgan and stare at the
+jar. Erin picks it up and examines it.
+
+		ERIN
+Oh my god...It's Jane...
+
+		KEMPER
+What was she doing here?
+
+		MORGAN
+Do you think this has anything to do with that thing
+she was talking about in the van?
+
+		KEMPER
+What thing?
+
+		MORGAN
+About her friends being dead...A bad man killing them
+or something like that?
+
+		KEMPER
+I don't know...
+
+		ERIN
+Just put it back, Morgan.
+
+Morgan takes it and slowly makes his way to the
+cupboard. He slowly opens it and sees millions of the
+same kind of jars, all with different pictures inside
+of them.
+
+		MORGAN
+Jesus...
+
+Erin turns around and her mouth drops open. She and
+Kemper walk towards it slowly. They all pick up a
+different jar and examine them.
+
+		ERIN
+Oh my god...
+
+		KEMPER
+What the hell is wrong with these people?
+
+		ERIN
+Their completely twisted, you know that?
+
+		ERIN
+What were they all doing here?
+
+They examine the jars once again and then put them
+back, shutting the cupboard quickly.
+
+INT. DARK ROOM_UPSTAIRS_OLD HOUSE_(CONT.)
+
+We watch as Andy and Pepper continue to talk and
+laugh. Suddenly, a loud bang can be heard from
+downstairs. They both jump and stay silent.
+
+		PEPPER
+What was that?
+
+		ANDY
+It's probably Erin or somebody. Come on, let's go.
+
+They both get up and hold eachother's hands as they
+walk out of the room and head towards the stairs.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+From the bottom of the stairs, we watch Andy and
+Pepper slowly make their way down the stairs. Andy
+walks outside to the porch, followed by Pepper.
+
+EXT. PORCH_OLD HOUSE_(CONT.)
+
+They look around, but see nothing. They hold
+eachother's hands and make their way to the back of
+the house.
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+Erin, Kemper, and Morgan continue to look around just
+as Andy and Pepper arrive.
+
+		ERIN
+You guys have to check this out.
+
+Andy and Pepper move to the cupboard where the group
+stands. Erin hands Andy the jar with Jane's picture
+in it.
+
+		ANDY
+What the hell is that?
+
+		ERIN
+We don't know...I think these people have something
+to do with the thing Jane was talking about in the
+van.
+
+		PEPPER
+You mean...about her friends dying and all that shit?
+
+		ERIN
+That's what we think.
+
+		KEMPER
+And someone's here, too. Erin just saw them.
+
+		MORGAN
+Where did they go?
+
+		ERIN
+I'm not sure...I think they went back inside the
+house.
+
+		KEMPER
+I'm going back inside.
+
+		ERIN
+Not without me you're not.
+
+Kemper and Erin make their way back towards the
+house. Morgan shrugs and walks with them. Andy and
+Pepper soon join them. From behind, we see the black
+FIGURE runs across the room once again.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Everyone arrives in the house and looks around.
+
+		ERIN
+I need to find a phone.
+
+Erin walks into the dining room followed by Kemper.
+She looks around and sees a large box full of
+collectables while Kemper looks around and makes his
+way into the kitchen. We cut back to Andy, Morgan,
+and Pepper. They walk down the hallway and come face-
+to-face with the closed sliding door. Pepper knocks
+on it and looks into the peephole.
+
+		PEPPER
+IS anyone here?
+
+Andy stands with Pepper, who continues to knock on
+the door. Morgan look to the right of the sliding
+door and sees a closed white door. He opens it and
+looks down a long flight of stairs.
+
+		MORGAN
+Hey...
+
+Andy and Pepper look at the open door. They all look
+at eachother and start to walk down the stairs.
+
+INT. STAIRS_OLD HOUSE_(CONT.)
+
+They all walk down the dark stairs and breathe
+deeply. Suddenly, the door suddenly slams shut. They
+all turn around and jump.
+
+		MORGAN
+Jesus...
+
+		PEPPER
+Keep going.
+
+They all shrug and continue to walk down the stairs.
+
+INT. KITCHEN_OLD HOUSE_(CONT.)
+
+Kemper looks around and sees all the feathers and
+bones hanging in the air.
+
+INT. BASEMENT_OLD HOUSE_(CONT.)
+
+Andy, Pepper and Morgan finish walking down the
+stairs and make their way further down into the
+pitch-black basement. They all look around to see
+pipes clinging to all the sides of the walls. Steam
+erupts from them slowly. Noise forms all around them.
+They all look around for a light switch. Morgan looks
+around under one of the pipes and a light switch.
+
+		ANDY
+Could someone turn on a light?
+
+		MORGAN
+I'm working on it!
+
+Morgan finally switches on a light. A loud steam can
+be heard from above them. They all look up and watch
+as lights flicker on and off at the end of the wet
+hallway. Water drips from the pipes. They all start
+to walk forward. A single door lies at the end of the
+hallway.
+
+		ANDY
+Do you think there's even a phone in there?
+
+		PEPPER
+There's only one way to find out.
+
+They all start to walk down the hallway slowly,
+looking around from time to time.
+
+INT. KITCHEN_OLD HOUSE_(CONT.)
+
+Kemper looks around some more and cringes. He turns
+around and makes his way back into the
+
+INT. DINING ROOM_OLD HOUSE_(CONT.)
+
+Erin continues to look through the old box. Kemper
+joins her.
+
+		ERIN
+Look at this stuff...
+
+Old records and vases can be seen all over the place.
+Old pictures from the 1800's are with it. Erin picks
+up an old broken telephone.
+
+		ERIN
+If only it worked.
+
+Erin huffs and looks around some more. Kemper joins
+her and picks up an old vase. Suddenly, a loud bang
+can be heard behind them. Erin suddenly drops what
+she was looking at and looks ahead of herself,
+breathing deep.
+
+		ERIN
+What the hell was that?
+
+She looks over at Kemper, who shrugs. They both walk
+towards the hallway and look around.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+They both look around.
+
+		ERIN
+Where is everybody?
+
+		KEMPER
+I don't know...
+
+They look past the stairs and see another room, the
+
+INT. LIVING ROOM_OLD HOUSE_(CONT.)
+
+A single couch can be seen in the corner of the room,
+along with an old small table with an antique cord
+phone. Erin sees it and runs towards it. She picks it
+up and tries to dial. She stops and sits still, the
+phone glued to her ear.
+
+		ERIN
+Hello?
+
+Silence. She throws down the phone and sighs. She
+turns around and bumps into Kemper.
+
+		KEMPER
+So?
+
+		ERIN
+There's no dial tone.
+
+		KEMPER
+Shit...Are you sure you saw someone?
+
+		ERIN
+Someone has to be here. Why would all this shit be
+here?
+
+		KEMPER
+I don't know...
+
+Erin looks behind her to see another door. She walks
+towards it and opens it. She screams as she bumps
+into Andy, Pepper and Morgan. They all jump and
+breathe hard.
+
+		PEPPER
+Did you find anything?
+
+		ERIN
+Old collectables and a broken phone.
+
+		MORGAN
+That's just perfect.
+
+		KEMPER
+Where were you guys?
+
+		ANDY
+Basement. We didn't find much. Just a locked door and
+some old pipes.
+
+		ERIN
+Let's just go back to the yard.
+
+		ANDY
+What about a phone? We need to fix the van and Jane's
+missing.
+
+		MORGAN
+Who cares about Jane!?
+
+		PEPPER
+Did you guys check upstairs?
+
+		ERIN
+Nope.
+
+		ANDY
+I'll stay in here and try to find a phone. You guys
+can just wait outside, alright?
+
+		PEPPER
+But Andy, I-
+
+		ANDY
+Pepper, just go outside. It'll be fine.
+
+They all nod and start to walk outside. Pepper stands
+with Andy.
+
+		PEPPER
+You sure you don't need any help?
+
+		ANDY
+I'll be perfectly fine.
+
+Pepper smiles and kisses him for a long time. She
+lets him go and starts to walk away, his hand her
+hers. She lets it go and walks out of the house. He
+sighs and walks towards the hallway.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Andy steps inside the hallway and looks up the
+stairs.
+
+		ANDY
+Hello? Is anyone here?
+
+There is a slight noise behind the closed slide door.
+He slowly walks towards it and continues to look
+around. He makes his way to the sliding door and
+knocks on it.
+
+		ANDY
+Hello?
+
+Nothing. He looks through the peephole and looks
+around. He sees nothing and suddenly backs away. He
+sighs and looks around, trying to find a phone. He
+continues to stand in front of the door while still
+trying to find someone or something.
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+Everyone sits back down in front of the greenhouse.
+They all sigh.
+
+		PEPPER
+If he's not back in ten minutes, I'm going in there.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+		ANDY
+Hello? We need help is anyone there?
+
+Silence. Andy turns and opens the door to the
+basement.
+
+INT. BASEMENT_OLD HOUSE_(CONT.)
+
+Andy walks down the stairs and makes his way down the
+now lit basement hallway. The door at the end of the
+hallway remains the same. He finally makes his way to
+the door and tries to open it, but it won't budge. He
+kicks on it, but nothing happens. He kicks at it one
+more time and pounds on it. Suddenly, it opens, and
+he falls inside.
+
+INT. ROOM_BASEMENT_OLD HOUSE_(CONT.)
+
+Andy gets up from the wet and feather filled floor
+and dusts himself off. He looks up to see meat
+hanging from hooks all over the ceiling. He holds his
+nose and watches as flies fly around everywhere. He
+looks around more to see feathers all around the
+floor. Bones hang from the ceiling as well. He
+cringes and walks out of the room.
+
+INT. BASEMENT_OLD HOUSE_(CONT.)
+
+Andy covers his nose as he runs down the hall and
+back towards the door. He makes his way up the stairs
+and opens the door to the
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+He shuts the door and closes his eyes in disgust. He
+stands next to the closed sliding door and sighs. He
+brushes his hand through his hair and closes his eyes
+once again.
+
+Suddenly, the sliding door opens and Leatherface
+stands there wearing a bloody apron and rubber
+gloves.
+
+		ANDY
+(turns around)
+OH SHIT!
+
+Leatherface screams as Andy starts to run towards the
+door. Leatherface runs after him quickly! Andy tries
+to open the door, but turns to see Leatherface nearly
+inches away from him. He turns and starts to run up
+the stairs, followed by Leatherface!
+
+INT. UPSTAIRS_OLD HOUSE_(CONT.)
+
+Andy runs down a long hallway and turns into a room
+we have not seen before. He enters it and shuts the
+door and locks it, just as Leatherface pounds on the
+door.
+
+INT. ROOM_OLD HOUSE_(CONT.)
+
+Leatherface continues to pound on the door while Andy
+looks around for a place to escape. There is nothing.
+
+		ANDY
+SHIT!
+
+As the pounding continues, we see Andy run towards a
+closed window. He pounds on it, but it does not move!
+As he runs towards the door, Leatherface's hand comes
+crashing through it, reaching for him, but he backs
+away. Suddenly, the door comes crashing down and
+Leatherface stands there, screaming through the thick
+mask. Andy backs away into a corner and tries to
+fight him off.
+
+Leatherface tries to grab him just as Andy runs out
+of the room and down the stairs.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Andy makes his way to the front door, Leatherface
+running after him wildly. He manages to open it, but
+doesn't have enough time to get through it.
+Leatherface grabs him, putting his bloody hand over
+his mouth. Leatherface shuts the door with a loud
+bang.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Leatherface still holds onto Andy, who kicks and
+screams wildly. He grabs him and throws him into the
+open sliding door, sending him toppling down the wet
+stairs. Leatherface walks in and slams the sliding
+door right into the CAMERA.
+
+INT. DARK ROOM_OLD HOUSE_(CONT.)
+
+As Andy comes falling down to the wet ground, he
+looks up to see Leatherface coming right after him!
+He stands up and starts to run to the end of the
+room, finally facing a corner!
+
+		ANDY
+Shit!
+
+Leatherface grabs his bloody chainsaw from the table
+and starts it up, letting us hear the buzz all around
+the screen. Andy makes his way into the other room,
+where all the hooks lay in the air. There is nowhere
+to hide now. As he turns around, he sees Leatherface
+standing right in front of him, waving his chainsaw
+in the air! Andy screams as the chainsaw comes down
+and slices into his stomach! Blood pours everywhere
+as Andy pulls his head back, just as blood comes
+pouring out of his mouth. Andy's distant screams fade
+away as we
+
+CUT TO:
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+Everyone still stands still, looking around and
+waiting for Andy to get back.
+
+		PEPPER
+It's been long enough. I'm going in there.
+
+		ERIN
+Pepper, just wait, okay? He'll be out in a second. It
+takes a long time to tell the cops exactly where this
+house is located.
+
+		KEMPER
+Yeah, Kemper, I mean, I couldn't even tell anyone
+directions to where this place is.
+
+		ERIN
+Which is probably why he's taking so long.
+
+		MORGAN
+The guy's a jackass, what can you do?
+
+Morgan looks around just as Pepper approaches him. He
+looks up and smiles.
+
+		PEPPER
+How's that lip?
+
+		MORGAN
+Better.
+
+Suddenly, Pepper punches him right in the lip! Morgan
+goes flying back for a second and then comes back up,
+holding his bloody lip. Erin and Kemper laugh.
+
+		MORGAN
+Bitch.
+
+Pepper air kisses him and sits down. She sighs and
+looks at Morgan, who stops the blood flow with his
+shirt.
+
+		PEPPER
+If he isn't here in five minutes, I'm going in there,
+whether you like it or not.
+
+Morgan rolls his eyes as Erin and Kemper hold
+eachother and sigh.
+
+EXT. OLD HOUSE_DAY
+
+We stare at the lonely house for a moment or two,
+then follow back in the
+
+EXT. BACKYARD_OLD HOUSE_LATER
+
+Everyone is the same as they were but Pepper cannot
+stand it any longer. She stands up and walks towards
+the porch.
+
+		MORGAN
+Where are the hell are you going?
+
+		PEPPER
+I'm going to go find Andy.
+
+		ERIN
+Pepper, I'm coming with you.
+
+		KEMPER
+So am I.
+
+Pepper, Erin, and Kemper start to walk off into the
+corner. Morgan stands still, and then gets up and
+walks towards them.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+We watch as Pepper, Erin, Kemper, and Morgan walk in
+slowly through the front door. They all look around,
+but see nothing than the same thing they had all seen
+before.
+
+		MORGAN
+This house is fucking creepy...
+
+		KEMPER
+Did you just notice that?
+
+		PEPPER
+Andy? Andy, where are you?
+
+Pepper walks over to the closed sliding door and
+knocks on it.
+
+		PEPPER
+Andy?
+
+Silence. Everyone else looks around as Pepper starts
+to turn around, but sees the door to the basement.
+
+		PEPPER
+Guys, I'm going back in the basement to see if he's
+there.
+
+		ERIN
+I'll check upstairs. The rest of you can join Pepper.
+She needs all the help she can get.
+
+They all nod as Erin walks off. Pepper opens the door
+and starts to walk down the stairs, followed by
+Kemper and Morgan.
+
+INT. BASEMENT_OLD HOUSE_(CONT.)
+
+Pepper takes the lead, followed by Morgan and Kemper.
+They all look around while the steam continues to
+rise from the pipes. A bang can be heard from behind
+the closed door ahead of them.
+
+		PEPPER
+Andy?
+
+		MORGAN
+Face it, he's not here. We've been down here before.
+
+		KEMPER
+Shut up, Morgan and just look for him.
+
+		PEPPER
+Andy? Where the hell are you?
+
+INT. UPSTAIRS_OLD HOUSE_(CONT.)
+
+Erin walks around the hallways, searching the rooms,
+but finds nothing.
+
+		ERIN
+Andy? Andy, are you here?
+
+Nothing. A small creak can be heard downstairs, and
+Erin rushes towards it. She runs down the stairs only
+to find the same old
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Nothing. Erin looks around, but there is no one
+there. She turns to the left of the stairs and walks
+into the
+
+INT. DINING ROOM_OLD HOUSE_(CONT.)
+
+She looks around to see the same box. She looks ahead
+to see another phone in the corner! She runs towards
+it and picks it up. Her smile soon turns into a
+frown. She slams down the phone and sighs.
+
+She pulls back her hair and walks back into the
+hallway.
+
+INT. BASEMENT_OLD HOUSE_(CONT.)
+
+Pepper looks at the smoky, water filled pipes as
+Kemper and Morgan suddenly jump back as a loud
+footstep can be heard.
+
+		KEMPER
+What the hell...
+
+		PEPPER
+Andy? Is that you?
+
+		MORGAN
+It's not Andy, Pepper, get over it.
+
+		PEPPER
+Andy!?
+
+Another footstep can be heard and Kemper steps out.
+
+		KEMPER
+All right, that's it, if somebody's out there just
+come on out!
+
+Silence. Another footstep can be heard. Kemper steps
+out again.
+
+		KEMPER
+Come on out now!
+
+There is a loud bang and the group jumps as they turn
+and see Erin, standing on the stairway.
+
+		ERIN
+What the hell is going on?
+
+		KEMPER
+Let's just get out of here.
+
+		PEPPER
+What about Andy? I'm not going to leave him!
+
+		KEMPER
+We'll go back to the van and if he doesn't show up in
+an hour or so, then we'll go look for him.
+
+		PEPPER
+It would be just as easy to look for him now!
+
+		MORGAN
+Just shut the fuck up and let's get out of here.
+
+Pepper stares at Morgan for a second, and then storms
+out on the rest of them. In a second, they all follow
+her all the way up to the
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+They all step out of the basement door and quickly
+shut it. Pepper stands, looking at everyone.
+
+		PEPPER
+All right, but if he doesn't show up I swear I am
+coming back here.
+
+		MAN
+(O.S.)
+Oh no you won't!
+
+They all jump and turn around to see GRANDPA DRAYTON
+SAWYER, an old man in his late seventies. He sits in
+a wheelchair and smokes a cigar.
+
+		DRAYTON
+What the hell are you doing in my house?
+
+Drayton slams down a large cane and stares at them.
+
+		ERIN
+I'm sorry...We were only looking for a phone.
+
+		DRAYTON
+I don't have one. Get out now.
+
+		ERIN
+Please, we need to call the police.
+
+		DRAYTON
+Unless you have a good reason for trespassing, there
+is no way I am going to let you use the phone.
+
+		KEMPER
+Look, our car broke down and a friend of ours is
+missing. Not to mention a hurt girl.
+
+		DRAYTON
+Go find another phone. And get out of my house.
+
+Erin, Kemper, Morgan, and Pepper make their way
+towards the door. They all walk out except for
+Pepper.
+
+		PEPPER
+We just wanted to use the phone.
+
+		DRAYTON
+I don't really think that was a good enough excuse so
+get the hell out of my house. Now.
+
+		PEPPER
+Is it illegal to ask someone for a simple phone call?
+
+		DRAYTON
+Get out.
+
+As Pepper walks out of the door, she gives Drayton
+the finger. He smirks as the door slams shut.
+
+EXT. OLD HOUSE_FIELD_(CONT.)
+
+They all step down from the porch and stand still.
+
+		ERIN
+What do we do now?
+
+		KEMPER
+We go back to the van and wait.
+
+		MORGAN
+We can't go back here! Not with that crazy bastard
+hanging around here!
+
+		PEPPER
+So you're saying we just have to wait at the van
+until he shows up? Hell no! I am not going to sit on
+my ass waiting for him to get back, which will
+probably take hours! I say we search for him now!
+
+		KEMPER
+There's nothing we can do now.
+
+Kemper starts to walk away. Erin shrugs and walks
+with him. Morgan joins them. Pepper stands still. A
+small tear forms in her eye. She wipes it and looks
+back at the house. She sighs and walks off with the
+group.
+
+FADE TO:
+
+EXT. VAN_LONELY COUNTRY ROAD_SUNSET
+
+We watch the sun as it comes closer towards sunset.
+We pan into the windows of the van very quietly.
+
+INT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+Everyone is asleep, except for Pepper, who sits up,
+rocking back and forth and biting her nails. She
+looks to see Morgan lying down on the mattress and
+Erin holding onto Kemper's waits as she sleeps.
+Kemper's face is turned towards Erin's face. It's
+like it's the perfect image...The perfect couple.
+Pepper sighs and slides open the door. She looks at
+everyone and sighs.
+
+		PEPPER
+I'm sorry.
+
+She bites her lip and then shuts the door quietly.
+
+FADE TO:
+
+EXT. OLD HOUSE_LONELY FIELD_(CONT.)
+
+We watch as Pepper comes closer and closer towards
+the house. In a matter of seconds, she reaches the
+
+EXT. PORCH_OLD HOUSE_(CONT.)
+
+She looks around and then knocks on the door.
+Silence. She knocks again, but still nothing. She
+sighs and opens the screen door, walking right into
+the
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Everything is the same as it was the last time we saw
+it. She looks around but sees no one. She looks
+upstairs but there is no sound. She sighs and stands
+in the middle of the hallway.
+
+		PEPPER
+Andy?
+
+Silence. She walks towards the closed sliding door
+and stands right next to it. She puts her ear on it
+to hear a few loud bangs and footsteps. She knocks on
+it.
+
+		PEPPER
+Andy?
+
+Suddenly, the noises stop, and Pepper knocks again.
+
+		PEPPER
+Andy, are you down there?
+
+More silence. She tries to open it, but there is no
+handle or anything to try and open it. She looks
+around and makes her way into the
+
+INT. KITCHEN_OLD HOUSE_(CONT.)
+
+She looks around but finds nothing. She opens a
+drawer and pulls out a long knife. She runs back to
+the
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+She sticks the knife in the slit of the sliding door
+and pulls to the left. Slowly, the door forms a
+crack, big enough just so she can open the rest of it
+with her hands. She throws down the knife and slides
+open the door, revealing two flights of stairs. She
+looks around and cringes. She steps inside and turns
+the corner and walks down the stairs.
+
+INT. DARK ROOM_OLD HOUSE_(CONT.)
+
+Pepper makes her way to the bottom of the old, wet
+cellar and continues to look around.
+
+		PEPPER
+Andy?
+
+There is pure silence. She looks ahead, only to see a
+table full of weapons, an apron, and a black door way
+in the back. She looks around and sees another door
+to the left of her. She walks towards it slowly,
+still looking around. As she walks in, she sees all
+the bloody hooks hanging from the ceiling.
+
+		PEPPER
+Jesus...
+
+She steps further into the room and looks back.
+
+		PEPPER
+Andy?
+
+More silence. A loud bang can be heard from behind
+her. Pepper runs out of the room and heads towards
+the black door in the back of the room.
+
+		PEPPER
+Andy?
+
+Suddenly, the door swings open, and Leatherface
+stands there! Both Pepper and Leatherface scream
+horribly! Pepper runs towards the stairs with
+Leatherface running after her! He suddenly grabs her
+by the waist and drags her to another room. She
+screams and kicks madly as she puts his hand on her
+mouth. He finally makes his way to the room with the
+hooks, still holding Pepper.
+
+Pepper turns and sees the horrifying sight and
+continues to scream. Slowly, Leatherface pulls Pepper
+closer and closer to the hooks. She closes her eyes
+and screams as Leatherface sticks her onto the hook!
+She screams and tries to pull herself off but can't!
+Leatherface covers his ears and screams himself as we
+
+FADE TO:
+
+INT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+Erin stirs as she wakes up and slowly opens her eyes.
+Morgan and Kemper are still asleep...but Pepper is
+missing!  She shakes Kemper.
+
+ERIN
+(loud whisper)
+Kemper!  Kemper, wake up!
+
+		KEMPER
+(groans)
+Hmm...?  Erin, what's wrong?
+
+		ERIN
+Pepper's gone.
+
+		KEMPER
+What do you mean, gone?
+
+		ERIN
+What do you think I mean by gone?  She isn't here!
+
+		KEMPER
+Okay, calm down.  I'm sure she's fine.
+
+		ERIN
+Oh, God...she could get herself killed out here!
+
+		KEMPER
+I'm sure she just went looking for Andy.
+
+A groan behind them from Morgan startles them both.
+
+		MORGAN
+(sleepily)
+What's going on?
+
+		ERIN
+Pepper's missing.
+
+		MORGAN
+(coming fully awake)
+What?
+
+		KEMPER
+Erin, we don't know that for sure.
+
+		MORGAN
+But, she isn't here?
+
+		ERIN
+Of course she isn't here, moron!
+
+		MORGAN
+Don't fucking call me a moron!
+
+		KEMPER
+Enough!  Shut up, the both of you...what time is it?
+
+Morgan looks at his watch.
+
+		MORGAN
+It's almost eight.
+
+		ERIN
+I'm gonna go look for her. Anyone coming?
+
+		KEMPER
+I'll go.
+
+		MORGAN
+Me too. I'd rather go with you guys than stay in this
+ratty old dump.
+
+They all make their way to the sliding door of the
+van and open it, stepping outside quietly. They slam
+the door and go walking off. We watch them from the
+window.
+
+INT. OLD HOUSE_SUNSET
+
+The group makes there up the old house's porch and
+knocks on the door. There is silence.
+
+		MORGAN
+Why don't we just go in, she's probably already in
+there.
+
+		KEMPER
+Just go in.
+
+Erin sighs and opens the door.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+The group walks in the house slowly. They all look
+around.
+
+		KEMPER
+Pepper? You in here?
+
+		MORGAN
+Listen, I'd love to stick around and wait for Pepper
+and all, but if that old man comes out again, we're
+fucking dead.
+
+		ERIN
+I'm not leaving. Not until we find Pepper and Andy,
+okay?
+
+Morgan rolls his eyes and walks down the hallway.
+Erin and Kemper move to the
+
+INT. DINING ROOM_OLD HOUSE_(CONT.)
+
+Everything remains the same.
+
+		KEMPER
+If I see that old man again, I'm getting the hell out
+of here.
+
+		ERIN
+I've never seen such a family with so many
+collectables before. Not even my grandmother could
+afford shit like this...
+
+Kemper continues to look around while Erin
+accidentally drops an old porcelain doll.
+
+		ERIN
+Shit...
+
+Erin leans over to grab it when suddenly, they both
+hear a loud bang. Erin quickly jumps up.
+
+		ERIN
+Morgan?
+
+Kemper look at Erin as they both run out into the
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+...Where they both run smack into Morgan. They all
+jump.
+
+		ERIN
+Was that you?
+
+		MORGAN
+No, I was just about to ask you the same thing...
+
+They all look at eachother.
+
+		ERIN
+I'm gonna look upstairs.
+
+		MORGAN
+You sure love it up there, don't ya?
+
+Erin smacks Morgan. She runs upstairs and Kemper
+joins her. Morgan rolls his eyes as another loud bang
+can be heard. He turns around to see the closed
+sliding door. He walks towards it slowly.
+
+		MORGAN
+Pepper? Andy?
+
+Silence.
+
+		MORGAN
+I'm in the no mood for games so stop goofing on me...
+
+More silence. He starts to turn around when there is
+another loud bang heard from behind the door. Morgan
+walks towards it slowly and looks into the peephole.
+Silence. He steps back and continues to look at the
+door. He knocks at it.
+
+		MORGAN
+Andy? Pepper? Where the hell are you?
+
+Morgan looks around and suddenly sees the knife lying
+on the floor where Pepper had left it. He picks it up
+and sticks it in the slit of the sliding door and
+pulls. The door slides open. Morgan falls on the
+floor and the knife comes close to hitting his leg.
+He kicks it away and stands up. He looks around and
+makes his way into the sliding door.
+
+INT. DARK ROOM_OLD HOUSE_(CONT.)
+
+Morgan makes his way down the familiar stairs and
+walks into the dark room. He looks around and covers
+his nose. He looks up as a drip of water falls on his
+face. He wipes it off and cringes. He continues to
+look around and spots the door in the back of the
+room. He walks towards it slowly and finally makes
+his way in front of it. He slowly opens the door and
+we watch him from inside the
+
+INT. ROOM_OLD HOUSE_(CONT.)
+
+The room is very dark, and Morgan makes his way
+farther and farther into the room. He looks around
+but can't see a thing. He finally grabs the handle of
+a light and pulls it. A single light bulb hangs from
+the middle of the ceiling, peering its light across
+four dead teens! Two of them are Pepper and Andy.
+They all lay on more hooks that are held up by wire.
+
+		MORGAN
+HOLY SHIT!
+
+Morgan steps back and covers his mouth.
+
+INT. DARK ROOM_OLD HOUSE_(CONT.)
+
+Morgan steps out of the room and slams the door. He
+leans against it and covers his mouth. He breathes
+deep. He makes his way towards the stairs but is
+stopped at Leatherface appears!
+
+Morgan screams and suddenly looks around for a way to
+escape. A single rectangular window can be seen to
+the right. He runs towards it and breaks it open.
+Leatherface runs after him, also screaming as well.
+Andy is half and half through the window. Leatherface
+grabs his legs as he kicks. Leatherface is kicked
+back as Morgan pulls out of the window! Leatherface
+screams and runs up the stairs.
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+Morgan breathes deep and looks up. He is standing at
+the side of the house. He runs into the backyard
+where he runs into the clothesline of dry sheets. He
+looks back every second to see if he's alone.
+
+		MORGAN
+ERIN! KEMPER!
+
+Silence. The sheets are blown by the wind. He hears a
+noise and continues to run. He suddenly falls to the
+ground and looks up. No one is there. As he stands
+up, he continues to run forward when we suddenly see
+Leatherface standing in front of him! Morgan screams
+as Leatherface raps the clothesline around his neck!
+Morgan tries to pull it off, but can't. He breathes
+deep and tries to kick away.
+
+		MORGAN
+(whisper)
+Erin...
+
+Leatherface pulls the wire closer and closer to
+Morgan's neck. He can barely movie anything. Morgan
+reaches out, but can't seem to do anything else.
+Suddenly, Leatherface lets go, and Morgan falls to
+the ground. He slowly turns around and holds on to
+his neck. He coughs horribly. As he looks up, he sees
+Leatherface, holding the opposite end of a hammer!
+Morgan tries to scream but is still in pain.
+Suddenly, the hammer comes crashing down into
+Morgan's head, splattering blood all across the white
+sheets, which continue to be blown by the wind.
+
+INT. UPSTAIRS_OLD HOUSE_(CONT.)
+
+Erin and Kemper continue to look around the upstairs
+bedrooms, only finding nothing but old furniture, old
+broken dolls, and chicken feathers everywhere. Erin
+walks deeper and deeper into the dark hallway and
+suddenly turns a corner into another room. A slight
+noise can be heard from inside of it. She knocks and
+puts her ear to the door.
+
+ERIN
+Andy? Pepper?
+
+Silence. She knocks again and there is another loud
+noise.
+
+		ERIN
+Open the door you guys. I know what you're doing in
+there...Come on...open the door!
+
+Suddenly, Erin busts open the door and she goes
+falling into the
+
+INT. BEDROOM_OLD HOUSE_(CONT.)
+
+Erin coughs and looks up to see many different kind
+of human bones being hung by a string from the
+ceiling. She looks down to see that the room is
+covered in feathers. She looks up to see five small
+cages sitting in mid air by string, all containing
+one chicken. They all make noises and try to get out
+of the cages. They all peck at the cage. As Erin
+looks around and continues to cringe, so looks ahead
+to see a couch made completely out of human bones.
+She coughs and stands up, wiping all the feathers off
+of her. She runs out of the door.
+
+		ERIN
+KEMPER!
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Kemper pops up from behind a door and catches Erin as
+she falls into his arms.
+
+		KEMPER
+What, what's wrong?
+
+		ERIN
+We have to get out of here. We need to get Morgan and
+get out of here.
+
+		KEMPER
+Why? What happened?
+
+		ERIN
+These people are fucking crazy that's what now let's
+go!
+
+Erin grabs Kemper's hand and they both go running
+down the stairs and into the
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+		ERIN
+Morgan!
+
+		KEMPER
+Where are Andy and Pepper?
+
+		ERIN
+I don't know but if they're not at the van then god
+knows where the hell they might be. MORGAN!
+
+Kemper wonders around the house, searching for
+Morgan. He is nowhere to be seen.
+
+		ERIN
+Morgan, where the hell are you, come on!
+
+There is no noise but the sounds of Kemper's
+footsteps.
+
+		KEMPER
+Come on.
+
+Kemper grabs Erin's hand and they both go running at
+the sliding door.
+
+		KEMPER
+(knocking)
+Morgan!? Are you down there?
+
+		ERIN
+Morgan! We have to get out of here, this isn't funny!
+Open the door!
+
+Suddenly, a loud bang can be heard and Kemper and
+Erin turn around immediately, seeing Drayton sitting
+in his wheelchair in the middle of the hallway. The
+sound was of his wooden cane banging against the
+floor. He continues to smoke a cigar.
+
+		DRAYTON
+I told you to stay the hell away from my house!
+
+		ERIN
+Where is everybody?
+
+		DRAYTON
+What are you talking about?
+
+		KEMPER
+Our friends! Where the hell are our friends!?
+
+		DRAYTON
+No one has been in here besides you.
+
+		ERIN
+Bullshit! My friends were in here and I want to know
+what the hell you did with them!?
+
+		DRAYTON
+If you keep talking to me like that, young lady, I'll
+have you both arrested for trespassing! This is
+private property!
+
+		KEMPER
+We just want to know where our friends are, then
+we'll leave you alone, okay?
+
+		DRAYTON
+Get out.
+
+		ERIN
+Not until we find our friends!
+
+Suddenly, the sliding door behind the swings open,
+and they both turn around to see Leatherface! Erin
+screams with fright!
+
+		KEMPER
+Jesus Christ!
+
+Leatherface screams as Erin and Kemper run towards
+the door.
+
+EXT. PORCH_OLD HOUSE_(CONT.)
+
+Erin swings open the door and runs out. She turns
+around to see Kemper fall to the ground!
+
+		ERIN
+KEMPER!
+
+Kemper tries to get up, but can't. Leatherface makes
+his way closer and closer towards him. Erin runs up
+the stairs and grabs Kemper's hands. She pulls as
+hard as she can until he finally makes free, just
+escaping the clutches of Leatherface! Erin and Kemper
+run into the field as Leatherface covers his ears and
+screams and Drayton laughs hysterically. We fade out
+the laughter as we
+
+FADE TO:
+
+EXT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+It is nearly dark, and no sounds can be heard
+whatsoever. We watch as Erin and Kemper run towards
+the van, sliding the door open and climbing inside
+very quickly. They shut the door as we slowly pan up
+from the quiet lonely highway.
+
+INT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+Erin lies on the mattress, crying while Kemper sits
+at the wheel, covering his eyes and wiping away the
+sweat from his forehead.
+
+		ERIN
+(crying)
+Jesus Christ, Kemper...
+
+Kemper looks back at her. They both breathe hard.
+
+		ERIN
+What the hell are we suppose to do!?
+
+		KEMPER
+Do you think that they have Jane and everyone else?
+
+		ERIN
+I wouldn't think of anything else...Kemper, what the
+hell are we gonna do! The van doesn't work and our
+friends are fucking missing!
+
+Erin cries and lies down on her side on the mattress.
+She cries as Kemper stands up and lies down next to
+her. He pulls back her hair and whispers into her
+ear.
+
+		KEMPER
+Hey...I'm not going to let anything happen to you,
+okay?
+
+Erin continues to cry, but looks up into Kemper's
+eyes. She nods and let's Kemper pull her into his
+arms. She hugs his waist as we pan away from them,
+going out the window and into the
+
+EXT. LONELY COUNTRY ROAD_(CONT.)
+
+We watch from the sky as the sunset slowly becomes to
+turn dark. Our heroes find themselves in another
+world as they lie down in the van on the lonely
+stretch of country road.
+
+FADE TO:
+
+EXT. VAN_LONELY COUNTRY ROAD_NIGHT
+
+Crickets chirp in the background as we pan in on the
+lonely, deserted van.
+
+INT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+The van is completely silent. Erin sleeps on the
+mattress with Kemper lying next to her, his arm
+around her waits. They both sleep quietly. Slowly,
+Kemper stirs and looks around. He looks down at Erin
+and kisses her forehead. She moans and turns around.
+He smiles and sits up. He wipes his eyes and looks at
+his watch.
+
+9:35
+
+He sighs and sits up in the driver's seat. He looks
+ahead of him and sees nothing but the lonely country
+road. He tries to start the van, but it just
+stutters. He leans back and hits the steering wheel.
+He looks back and suddenly smacks his head.
+
+		KEMPER
+(whisper)
+Stupid fuck.
+
+He smiles and laughs. He crawls into the backseat and
+reaches behind the mattress. He lifts up a few bags
+and suitcases and finds a plastic milk bottle full of
+gas. He takes it and slides open the door. He looks
+at Erin, smiles, and shuts the door. We look at Erin
+for a few moments, then
+
+CUT TO:
+
+EXT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+We watch as Kemper makes his way to the side of the
+van and opens the gas tank. He opens the milk bottle
+and dips it into the gas tank. He looks around to see
+nothing but open fields and the still lonely road. He
+finishes up filling up the tank and throws the
+plastic bottle in the middle of the road. He puts the
+cap back on the tank and opens the driver's door. He
+steps inside and shuts the door quietly.
+
+INT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+He looks back and sees Erin sleeping silently. He
+sighs and reaches over to start the car but can't
+find the car keys.
+
+		KEMPER
+Shit...
+
+He looks around but can't find them. He sits up and
+makes his way to the back of the van. He taps Erin on
+the shoulder and waits for her to wake up.
+
+		KEMPER
+Erin...Erin, wake up...
+
+Erin's eyes suddenly open and she sees Kemper sitting
+above her.
+
+		ERIN
+Hey...
+
+		KEMPER
+Hey...I just found a bottle full of gas in the back.
+
+		ERIN
+You're shitting me.
+
+		KEMPER
+No. But now I can't find the keys. Do you have them?
+
+		ERIN
+No...I thought you had them.
+
+		KEMPER
+That's why I'm asking you. Did anyone take them for
+some reason?
+
+		ERIN
+I don't think so...Everyone was with us...No one
+could have taken them except for-
+
+Silence. Erin's mouth hangs open.
+
+		KEMPER
+What is it? Who took them?
+
+		ERIN
+Jane...You said Jane wasn't here when Pepper came
+back, right?
+
+Kemper looks up. His mouth drops open.
+
+		KEMPER
+Why would she take the keys?
+
+		ERIN
+I don't know. But wherever she is, I'm going to go
+look for her.
+
+		KEMPER
+Erin, you can't!
+
+		ERIN
+Why not?
+
+		KEMPER
+It's pitch black outside and you might get lost!
+
+		ERIN
+Didn't you bring a flashlight?
+
+Kemper sighs and looks around. He opens a bag and
+pulls out a flashlight. He switches it on and shines
+it on Erin's face.
+
+		ERIN
+Let me see it.
+
+		KEMPER
+I'm coming with you.
+
+		ERIN
+Okay, but let me hold the flashlight.
+
+Kemper reaches over and hands the flashlight to Erin,
+who slides open the door and steps out. Kemper
+follows her and shuts the door on the way out.
+
+EXT. VAN_LONELY COUNTRY ROAD_(CONT.)
+
+They both look around. Erin starts to walk the
+opposite direction of the house. Kemper follows her.
+
+		KEMPER
+This is crazy, you know that? She could be anywhere
+out here.
+
+		ERIN
+She could be at that house but I'm not going back
+there.
+
+		KEMPER
+Why the hell would she be at that god-forsaken house?
+
+		ERIN
+I don't know. Why the hell couldn't we find
+everybody, huh?
+
+		KEMPER
+Erin, this is crazy. Jane wouldn't take the keys in
+the first place.
+
+		ERIN
+She could and she couldn't have, but I'm not taking
+any fucking chances. I'm looking for her.
+
+		KEMPER
+If we don't find anything we're just going to have to
+wait in the van until morning.
+
+		ERIN
+Whatever you say.
+
+Kemper sighs as they both continue to walk.
+
+		KEMPER
+I'm sorry this trip has turned into such a wreck.
+
+		ERIN
+It's not your fault. It's not anyone's fault.
+
+		KEMPER
+I still want to apologize. This isn't exactly what I
+planned on doing.
+
+		ERIN
+I know, Kemper. Even though you didn't cause any of
+this, I accept your apology.
+
+Kemper stops Erin from walking. They both look into
+eachother's eyes. He holds her chin and brushes back
+her hair.
+
+		KEMPER
+I promise none of this will happen again.
+
+		ERIN
+Kemper...
+
+		KEMPER
+Shh...
+
+They both come close and kiss passionately. They pull
+back and look at eachother.
+
+		ERIN
+I love you.
+
+Kemper smiles and kisses her again.
+
+		KEMPER
+Come on.
+
+Kemper continues to walk. Erin flows him, pointing
+the flashlight in front of them. They suddenly enter
+the dark woods.
+
+		KEMPER
+Erin, let's just go back.
+
+		ERIN
+I need to find her. We need to get those keys and get
+the hell out of here.
+
+Kemper stops walking and Erin walks into the woods.
+He stands still. Erin looks back at him.
+
+		ERIN
+Come on.
+
+Kemper sighs and walks in with her. She reaches out
+her hand and soon they are walking into the woods,
+hand-in-hand.
+
+EXT. WOODS_LONELY COUNTRY ROAD_(CONT.)
+
+We watch as Erin and Kemper walk deeper and deeper
+into the woods. Erin shines the light everywhere, but
+nothing else can be seen but branches, bushes,
+leaves, and old, dead trees. They both look around
+every few seconds, but always see the same old thing.
+
+		KEMPER
+Erin, I don't think we're going to find much out
+here.
+
+		ERIN
+Let's just keep checking.
+
+		KEMPER
+Why don't we just go back?
+
+		ERIN
+We can't go anywhere in the van unless we have the
+keys. Now we have to find her.
+
+		KEMPER
+How do we know if she even has them?
+
+		ERIN
+Who else could have them? Didn't you leave them in
+the ignition when we left?
+
+		KEMPER
+Yeah, but-
+
+		ERIN
+No one was in there after we left except Jane, and
+she was gone when Pepper came back. How can you
+explain that?
+
+		KEMPER
+I can't. Let's go.
+
+Erin looks at him and then looks back ahead into the
+woods. She sighs and they continue to walk.
+
+		ERIN
+Something has got to be out here.
+
+		KEMPER
+We are definitely not going back to that house.
+
+		ERIN
+No shit. They might be there, but I'm not taking any
+chances. We need to find somebody else than those
+creeps.
+
+As they walk, the sound of a branch breaking can be
+heard from behind them. They both turn around and
+Erin shines the flashlight directly ahead of them.
+
+		KEMPER
+What the hell was that?
+
+		ERIN
+I don't know...
+
+Silence.
+
+		KEMPER
+Andy?
+
+		ERIN
+Pepper? Morgan?
+
+Silence.
+
+		KEMPER
+Let's go.
+
+		ERIN
+Wait...
+
+Erin slowly walks back towards the way they come
+from. She stops in her tracks.
+
+		ERIN
+Guys!?
+
+More silence.
+
+		KEMPER
+It's not them, Erin.
+
+		ERIN
+You don't know for sure...Andy! Pepper! Morgan!
+
+Kemper walks towards her and looks ahead of
+themselves.
+
+		KEMPER
+I'll go look.
+
+Erin stays still while Kemper walks slowly into the
+woods. Erin watches him and shines the flashlight in
+front of him as well. She sighs as we hear thunder
+rumbling in the clouds. Erin looks up and sighs. She
+shines the flashlight at Kemper, who looks around,
+but sees nothing. He turns towards her and shrugs.
+
+		KEMPER
+I don't see anything.
+
+Suddenly, the buzz of a chainsaw can be heard from
+behind Kemper. He quickly turns around to see
+Leatherface cutting through the branches and making
+his way right towards Kemper and Erin! Erin screams
+and accidentally drops the flashlight.
+
+		ERIN
+KEMPER! COME ON!
+
+Kemper runs towards Erin and grabs her hand. They
+both take off running deeper and deeper into the
+woods. Leatherface makes his way through the branches
+and goes chasing after them while more thunder can be
+heard. As we go back to Erin and Kemper, we watch as
+Erin continues to look back. She sees Leatherface
+coming up right behind them!
+
+		ERIN
+Kemper...
+
+Kemper turns around. His mouth drops open.
+
+		KEMPER
+LET'S GO!
+
+Kemper leads as he pulls Erin's hand and they both go
+running down the branches and bushes. They stop as a
+large branch sits right in front of their faces with
+Leatherface coming closer and closer!
+
+		KEMPER
+GO!
+
+		ERIN
+Not without you!
+
+		KEMPER
+JUST GO, ERIN! NOW!
+
+She looks at him and suddenly pulls her way through
+the branch. She looks as Kemper tries to get in
+himself, but can't. He reaches out his hand as she
+grabs it. She tries to pull him in but can't!
+
+		ERIN
+COME ON!
+
+		KEMPER
+I'M STUCK!
+
+		ERIN
+WHAT IS THIS, A FUCKING MOVIE!? GET OUT! NOW!
+
+Kemper suddenly falls as Leatherface comes up closer
+to him. Erin falls to the ground she looks up and
+starts to cry.
+
+		KEMPER
+GO!
+
+		ERIN
+No...!
+
+		KEMPER
+Go find help!
+
+		ERIN
+Kemper, I'm not leaving you!
+
+		KEMPER
+GO!
+
+Erin cries harder and starts to run into the woods.
+She looks back to see Leatherface at Kemper's feet.
+She cries and looks ahead of her, seeing nothing but
+pitch black. More thunder rolls as we suddenly see it
+start to rain. Erin runs faster and faster, looking
+back every two seconds. As she looks, she sees no one
+in sight but herself. The only sounds that can be
+heard if the rain falling onto the soft ground. She
+looks up and starts to cry.
+
+Suddenly, she trips, sliding into the wet mud. She
+stands up and looks around. Nothing but falling rain
+surrounds her. She stands up and starts to walk back
+towards the van. She walks slowly. No one and nothing
+can be seen around her. She gives off a sigh of
+relief and continues to walk. The rain begins to pour
+harder now. She wipes the mud off of her face and
+continues to cry. Another sound of a branch breaking
+is heard behind her. She turns around and sees
+nothing. She turns back around and continues to walk.
+Another noise is heard from behind her.
+
+She turns around again just as the chainsaw lights
+up! She screams and runs into the woods. Leatherface
+chases after her like a wild animal, waving the
+chainsaw in the air like a maniac. She looks back and
+sees him coming closer. She stops and looks down to
+see Kemper lying face down in the mud. He is not
+moving. She cries and continues to run.
+
+		ERIN
+SOMEBODY HELP ME!
+
+Erin runs faster and faster until she finally reaches
+the
+
+EXT. LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Erin looks ahead of her to see the van sitting to the
+side of the road. She looks back to see Leatherface
+still chasing after her, but still very far in the
+woods.
+
+EXT. VAN_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Erin makes her way to the van and slides open the
+door. She steps into the van and slides the door
+shut.
+
+INT. VAN_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Erin ducks down and lies down on the mattress. She is
+very close to the side of the van. Only the sound of
+the rain tapping against the roof can be heard around
+her. She squeezes herself and closes her eyes tight.
+She starts to cry quietly. She pushes herself into
+the back of the van and covers herself with her
+hands. She stays silent as the rain continues. We
+look around the van from Erin's point of view and
+then return to the CAMERA. Erin ducks down more and
+continues to cry silently. She wipes her tears and
+looks up. Nothing but the rain. She crawls her way to
+the side window and slowly looks out of it. There is
+no one in sight. Not even Leatherface. She sighs and
+leans back down on the mattress.
+
+Suddenly, the buzzing of the chainsaw starts again
+and Leatherface can be seen standing outside the
+window! Erin screams and covers her eyes as
+Leatherface tries to scrape his way into the van with
+the chainsaw. Erin looks around and suddenly jumps
+into the driver's seat. She looks back and sees
+Leatherface still trying to break in. She opens the
+driver's door and suddenly falls out of the wet mud.
+
+EXT. VAN_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Erin stands up and quickly starts to run down the
+road. She looks back and sees Leatherface running
+after her. She cries and continues to run faster. She
+makes her way into the lonely field and runs through
+the wet grass. She looks back and sees Leatherface
+tearing through the grass with the chainsaw. Erin
+runs and runs, and cries and cries. She falls, but
+quickly gets back up again. She is very far ahead of
+Leatherface, but she can still hear his chainsaw
+buzzing in the distance. Erin pushes through the
+grass and suddenly sees the old house full of light
+in front of her. She screams as Leatherface comes
+closer and closer. She starts to run towards the old
+house until she is on the
+
+EXT. PORCH_OLD HOUSE_RAINING_(CONT.)
+
+Erin pounds on the door and looks back to see
+Leatherface coming closer and closer towards her.
+
+		ERIN
+SOMEBODY! PLEASE!
+
+Erin suddenly tears open the door and runs inside,
+shutting it tightly and locking it.
+
+INT. HALLWAY_OLD HOUSE_RAINING_(CONT.)
+
+Erin, soaking wet, looks around the house for any
+place to hide. No noise is outside but the rain.
+
+		ERIN
+Hello? Somebody please help me!
+
+Erin looks around. There is no answer.
+
+		ERIN
+PLEASE!
+
+Erin looks ahead and sees the sliding door. She
+pounds on it and waits for a response, which she does
+not get.
+
+		ERIN
+HELLO? SOMEBODY...PLEASE HELP ME!
+
+She pounds on it again, but there is still no answer.
+She tries to open it with her bare hands, but can't.
+She sighs and tries again. She pulls once more and
+the door comes sliding open. She falls to the ground
+and looks at the front door, which remains still. She
+stands up just as the chainsaw comes running through
+the door! Erin screams as the chainsaw tears apart
+the front door. She screams again and runs into the
+room behind the sliding door. She looks at what's
+left of the front door to see Leatherface almost step
+inside. She tries to shut the sliding door, but
+can't!
+
+		ERIN
+COME ON!
+
+The door still won't move, and Leatherface busts down
+the door and comes running towards her! She screams
+and the door slides shut!
+
+INT. DARK ROOM_OLD HOUSE_(CONT.)
+
+Erin locks the door with three locks that can be seen
+all over the sides of the door. She reaches over and
+looks into the peephole. From her point of view, we
+see nothing but the dead door.
+
+Suddenly, Leatherface's eye comes directly in front
+of hers! She screams and comes falling back down the
+stairs. She suddenly sits up as she goes sliding into
+the dark room, which is full of water. The water is
+up to Erin's waist. She cries and stands up. She
+looks around to see the other door in the back, and
+the door to the left of her, which is closed. She
+looks up to see the broken window, which Morgan slid
+out of. Rain comes pouring down into the room,
+flooding it. She sighs and looks around. She stands
+up and slowly starts to walk up towards the door on
+the far left. She opens the door quietly and steps
+in. She cringes at the bloody hooks. She covers her
+nose and looks around. Meat and bones lie everywhere
+on the ground. A loud bang is heard above her. She
+ducks down and hides behind the door. Footsteps pass
+her from the hallway. They disappear and Erin opens
+the door slowly. As she looks around, she
+sees...MORGAN!
+
+He is lying face down on the floor. She runs over to
+him and falls next to him.
+
+		ERIN
+Morgan...Morgan, we must get out of here now!
+
+Morgan stands still.
+
+		ERIN
+Morgan...?
+
+She reaches out to him and movies his shoulders. He
+sits still.
+
+		ERIN
+Morgan...Morgan! Get up!
+
+Morgan doesn't move.
+
+		ERIN
+Morgan!
+
+Erin moves his body up to see that he is completely
+dead! Water flies everywhere as his body falls to the
+ground. Erin screams with terror. She stands up and
+starts to run towards the door when she suddenly
+hears more footsteps making their way towards the
+sliding door. Erin turns around and sees the closed
+door in the back of the room. She runs towards it and
+opens it to find Andy and Pepper's dead bodies! She
+screams and slams the door. She panics and suddenly
+sees the open window. Why didn't she see it before?
+She runs towards it just as the sound of the chainsaw
+can be heard tearing at the sliding door. She makes
+her way out of the window and goes running away from
+the house.
+
+EXT. LONELY FIELD_RAINING_(CONT.)
+
+Erin runs through the long stalks of grass and
+continues to look back. We see through her point of
+view that Leatherface is coming out of the front
+door! She screams as Leatherface runs towards her
+very quickly, waving his chainsaw in the air. We cut
+back to him and Erin in between shots. Erin screams
+while she runs.
+
+		ERIN
+SOMEBODY! PLEASE!
+
+The chainsaw grows nearer and nearer towards her. She
+screams louder.
+
+		ERIN
+HELP ME!
+
+Erin runs faster and faster, and no matter what she
+does, Leatherface seems to be coming closer and
+closer to her. She falls into the ground and looks
+up, seeing the van. She gets up and runs past it and
+finally starts to run down the
+
+EXT. LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+In a series of shots, we watch as Erin runs down the
+road and makes her way into the woods, followed by
+the maniac himself. In a montage of fast moving
+clips, we watch Erin runs through the woods,
+Leatherface coming after her, and the rain pouring
+down on both of them. Erin screams and screams but
+nothing seems to help. She stops running and looks
+up, seeing a lonely gas station through the trees.
+She screams and continues to run towards it.
+
+		ERIN
+HELP ME! PLEASE!
+
+Erin suddenly gets caught in the branches, tearing
+her shirt and her pants. She screams and tries to get
+herself loose. Leatherface comes closer and closer,
+waving the chainsaw everywhere. She pulls on her
+shirt, which seems to be tearing. She looks back to
+see Leatherface comes closer and closer. She tugs on
+her shirt as hard as she can and she soon falls to
+the ground, her shirt a little torn. She stands up
+and starts to run. Leatherface stops at the branches
+and cuts through them with the chainsaw. Erin runs
+through the trees until she finally reaches the
+
+EXT. GAS STATION_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+As Erin runs, she looks up to see a police car parked
+in front of the gas station. Just as she runs towards
+it, SHERIFF HOYT, an old man in his very late
+fifties, steps out, holding a large mug of coffee.
+Erin runs towards him.
+
+		ERIN
+PLEASE! PLEASE HELP ME!
+
+		SHERIFF
+Whoa, whoa, whoa, little lady.
+
+		ERIN
+Please help me!
+
+Erin falls to the ground, he face covered with dirt
+and mud.
+
+		SHERIFF
+Just slow down and tell me what's wrong.
+
+		ERIN
+HE'S KILLING THEM!
+
+		SHERIFF
+Who's killing who?
+
+		ERIN
+THE MAN...HE'S KILLING MY FRIENDS! PLEASE! HELP ME!
+
+		SHERIFF
+Hold on, ma'am. Just calmly tell me what happened.
+
+Sheriff Hoyt helps Erin up, who is not leaning
+against the police car, crying.
+
+		SHERIFF
+Just tell me what happened, ma'am.
+
+		ERIN
+There was a man...and he was killing all my
+friends...He was coming after me...With a chainsaw.
+
+		SHERIFF
+Oh, come now, miss-
+
+		ERIN
+I'M NOT LYING! He's in the woods with a chainsaw! He
+killed all of my friends!
+
+		SHERIFF
+I'll go take a look.
+
+		ERIN
+NO! Please! Please don't leave me!
+
+		SHERIFF
+Everything gonna be okay, just hold on a minute.
+
+Sheriff Hoyt walks away as Erin stares at him,
+pulling her hair back and wiping her tears. Sheriff
+Hoyt walks over into the woods and looks into it. The
+rain slowly comes to a stop. Erin sniffles and tries
+to help herself from crying. Sheriff Hoyt looks out.
+He turns around and heads back towards Erin.
+
+		SHERIFF
+There's nobody out there.
+
+		ERIN
+But he was chasing me with a chainsaw!
+
+		SHERIFF
+I understand that, just let me take you to the
+nearest police station and they can sort it out
+there, alright?
+
+Erin sniffs and then nods. Sheriff Hoyt opens the car
+door for her and she steps in.
+
+		SHERIFF
+I'll be right back, okay? You just sit still.
+
+Erin nods and Sheriff Hoyt shuts the door. He looks
+at her and then makes his way into the gas station.
+
+INT. POLICE CAR_GAS STATION_(CONT.)
+
+Erin holds herself and looks around. She wipes her
+tears and looks outside into the woods. She knows
+what she saw, and she knows that no one believes her.
+She sets her head down and continues to cry. The gas
+station door swings open and Sheriff Hoyt walks out,
+followed by HENRIETTA SAWYER, a young girl of about
+eighteen. She is very dirty at the moment and holds a
+young baby. She talks with Sheriff Hoyt as they both
+make their way to the car. Henrietta opens the
+passenger's door and steps inside. She looks over at
+Erin and smiles. Sheriff Hoyt sits himself down in
+the driver's seat. He looks at Erin and smiles again.
+
+		SHERIFF
+This is my daughter, Henrietta.
+
+		HENRIETTA
+Hello.
+
+		ERIN
+(wipes her tears)
+Hi...
+
+Henrietta smiles as Sheriff Hoyt starts the car.
+
+EXT. POLICE CAR_LONELY COUNTRY ROAD_CONT.)
+
+We watch as the police car makes its way down the
+lonely country road.
+
+INT. POLICE CAR_LONELY COUNTRY ROAD_(CONT.)
+
+Erin looks outside as Henrietta and Sheriff Hoyt stay
+silent. The baby whines and groans.
+
+		SHERIFF
+So what brings you all the way out to Travis County,
+um...
+
+		ERIN
+Erin.
+
+		SHERIFF
+Erin.
+
+		ERIN
+My friends and I were on our way to Mexico...Then our
+van broke down.
+
+		SHERIFF
+That's never good, is it?
+
+		ERIN
+No...
+
+		SHERIFF
+So what happened?
+
+		ERIN
+We went looking for help...But we didn't find
+anything. Are you taking me to the police station?
+
+		SHERIFF
+I just need to make a little stop at our house...You
+don't mind, do you?
+
+		ERIN
+No...
+
+		SHERIFF
+(smiles)
+Good.
+
+		HENRIETTA
+Do you think that we could have her for dinner?
+
+		SHERIFF
+That's up to her, honey. Would you like to join us?
+
+		ERIN
+I'd rather just go to the station.
+
+		HENRIETTA
+Oh, but you must join us. My uncle makes the best
+meat, right, pop?
+
+		SHERIFF
+The best in the county.
+
+		ERIN
+I just want to go to the station please.
+
+		HENRIETTA
+Alright, but you don't know what your missing.
+
+		ERIN
+I just want to go home.
+
+		SHERIFF
+That's not going to be for a while, darling. So why
+don't you just sit back and join us?
+
+		ERIN
+I don't know.
+
+		HENRIETTA
+Please? For us? We seldom ever get company.
+
+		SHERIFF
+Usually we just scare them off, right, sweetie?
+
+		HENRIETTA
+That's right.
+
+Sheriff Hoyt and Henrietta smile. Erin leans over
+towards the door. She closes her eyes and looks
+outside. They pass the van. Erin watches it as it
+disappears from behind them. They suddenly take a
+sharp turn into the field.
+
+		ERIN
+Where are we going?
+
+		HENRIETTA
+We told you. Our house, silly!
+
+Erin pants. She pulls her hair back and looks out
+into the wet grass.
+
+EXT. POLICE CAR_FIELD_(CONT.)
+
+We watch as the police car makes its way to the same
+old house we had seen before. Light surrounds it from
+the windows, making it very eerie. We follow the
+police car as it suddenly parks in front of the
+house.
+
+INT. POLICE CAR_OLD HOUSE_(CONT.)
+
+Erin looks at the house and starts to panic.
+
+		HENRIETTA
+Please come on and join us.
+
+		ERIN
+No...NO! GET ME OUT OF HERE!
+
+		SHERIFF
+Oh come now. Don't be shy.
+
+Suddenly, Sheriff Hoyt grabs Erin and pulls her out
+of the police car. She screams and kicks wildly.
+Henrietta, who is outside, smiles and watches. She
+bounces the baby.
+
+		SHERIFF
+Open the front door, will you, honey?
+
+		HENRIETTA
+Sure, pop.
+
+EXT. POLICE CAR_OLD HOUSE_(CONT.)
+
+Henrietta makes her way up the stairs and opens the
+front door. Erin screams and screams, but nothing can
+be done about it. Henrietta looks at the front door,
+which is nearly destroyed from the chainsaw.
+
+		HENRIETTA
+Hey pop!
+
+		SHERIFF
+What is it now?
+
+		HENRIETTA
+Look what Bubba did to this door.
+
+Sheriff Hoyt turns around and looks at it.
+
+		SHERIFF
+That son of a bitch. When he gets here I'm gonna give
+him a piece of my mind!
+
+		HENRIETTA
+I'll go get grandpa.
+
+Henrietta walks into the house as Sheriff Hoyt
+carries the screaming Erin up to the porch.
+
+		SHERIFF
+No why are you screaming? I promise you, we're gonna
+have some fun!
+
+Erin screams as we watch them both go into the house.
+As they walk inside, it begins to rain again.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Sheriff Hoyt walks in the house with Erin while
+Henrietta makes her way up the stairs.
+
+		HENRIETTA
+Grandpa!
+
+INT. LIVING ROOM_OLD HOUSE_(CONT.)
+
+Sheriff Hoyt walks into the very dirty living room
+and sets Erin down on the couch.
+
+		SHERIFF
+Jedidiah!
+
+Sheriff Hoyt smiles at Erin as he covers her mouth. A
+very young boy, JEDIDIAH SAWYER, runs down the stairs
+and into the living room, joining his father. He is a
+boy of about six or seven.
+
+		JEDIDIAH
+Yes, pop?
+
+		SHERIFF
+Go get some rope for our new friend here.
+
+		JEDIDIAH
+Alright.
+
+Jedidiah runs out of the living room and into the
+kitchen. Sheriff Hoyt smiles at Erin, who starts to
+cry.
+
+		SHERIFF
+Now don't you worry. Everything's gonna be okay.
+
+Erin closes her eyes and tries to scream. Jedidiah
+runs into the living room with a long stretch of
+rope.
+
+		SHERIFF
+Thank you, son. Now go fix up the dinner table.
+
+Jedidiah runs into the kitchen and runs into the
+dining room, his hands full of plates. Sheriff Hoyt
+grabs Erin's arms and ties them up, letting go of her
+mouth. She screams horribly. Henrietta walks into the
+living room and sticks a dirty sock in her mouth.
+
+		SHERIFF
+Thank you, honey. Now where's your grandfather?
+
+		HENRIETTA
+He's coming, He just needs a little help coming down
+the stairs.
+
+Sheriff Hoyt laughs as Erin accidentally spits out
+the sock. Sheriff Hoyt smiles and grabs her face.
+
+		SHERIFF
+You simmer down, now.
+
+		ERIN
+WHAT'S WRONG WITH YOU PEOPLE!?
+
+		SHERIFF
+Just stay quiet now. And don't move a muscle.
+
+Sheriff Hoyt picks up the sock and stuffs it into her
+mouth again. Erin's muffled screams can barley be
+heard. A single tear rolls down her cheek. Sheriff
+Hoyt smiles and stands up, leaving Erin alone on the
+dirty couch. Just then, Leatherface walks into the
+house. Sheriff Hoyt walks over to him.
+
+		SHERIFF
+What the hell did you do to this door!?
+
+Leatherface says nothing but starts to cry and wail.
+
+		SHERIFF
+NOW WE'RE GOING TO HAVE TO GET ANOTHER DOOR! YOU DAMN
+FOOL!
+
+Sheriff Hoyt smacks Leatherface, who makes his way
+down the hall. Sheriff Hoyt follows him as we stay on
+Erin, who cries and tries to scream.
+
+EXT. OLD HOUSE_FIELD_RAINING_(CONT.)
+
+From a high angle, we watch the lit up house as the
+rain starts to pour even harder. Thunder rumbles and
+lightning strikes.
+
+INT. LIVING ROOM_OLD HOUSE_(CONT.)
+
+Erin lies on the couch without moving. Suddenly, she
+turns to see Jane walk into the living room! She
+smiles and walks over to Erin. Erin moves and moves,
+trying to break free from the ropes.
+
+		JANE
+DAD! What should I do with the girl?
+
+A few seconds pass, then Sheriff Hoyt walks in the
+room and looks at Erin.
+
+		SHERIFF
+Take her to the dining room. Your grandfather is
+getting a little hungry.
+
+Sheriff Hoyt smiles as Jane grabs Erin by the feet
+and drags her on the floor into the hallway.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Jane continues to drag Erin across the hall until she
+makes her way into the
+
+INT. DINING ROOM_OLD HOUSE_(CONT.)
+
+The table is completely set, and very nice, too. One
+extra chair has been added to the front of the table.
+Jane picks up Erin and sets her down into it. She
+looks at her.
+
+		JANE
+Car trouble?
+
+Jane laughs as we hear Erin's muffled cries.
+
+		JANE
+Jedidiah! Get in here!
+
+Jedidiah comes running in through the kitchen door.
+
+		JEDIDIAH
+What?
+
+		JANE
+Do me a big favor and get some more rope, please?
+
+		JEDIDIAH
+Why do I always have to get the rope?
+
+		SHERIFF
+(from hallway)
+Do what your sister tells you.
+
+Jedidiah stomps off into the kitchen while Jane tends
+to Erin.
+
+		JANE
+Where are your car keys? Couldn't find them, could
+you?
+
+From behind, Sheriff Hoyt steps into the dining room.
+Jane doesn't notice.
+
+		JANE
+(holds keys in air)
+You're never gonna get 'em back either!
+
+Sheriff Hoyt grabs them and stuffs them into his
+pocket. Jane turns around.
+
+		JANE
+Daddy!
+
+		SHERIFF
+Jane, now I told you, you cannot keep taking things
+from a person, that's just not right!
+
+		JANE
+But, dad, I was just-
+
+		SHERIFF
+Don't but dad me. Now go downstairs and get those
+other kids for dinner.
+
+Jane nods and walks out of the dining room. Sheriff
+Hoyt leans over towards Erin.
+
+		SHERIFF
+Daughters. What can you do?
+
+Erin closes her eyes tight as a slight tear rolls
+down her cheek.
+
+		SHERIFF
+Now don't you worry. Everything's gonna be okay.
+
+Sheriff Hoyt pulls back Erin's hair and smiles at
+her. Jedidiah steps in from the kitchen, holding the
+rope.
+
+		SHERIFF
+Give it here, son.
+
+Jedidiah hands the rope to his father and then steps
+back into the kitchen, joining Henrietta.
+
+		SHERIFF
+Now, just stay still.
+
+Erin kicks as Sheriff Hoyt tries to tie her feet to
+the chair. He looks up to Erin and gives her a death
+stare.
+
+		SHERIFF
+Just stay still.
+
+Sheriff Hoyt tries to do it again, but Erin continues
+to kick and scream. He sits up and slaps her. Her
+head goes falling back.
+
+		SHERIFF
+I told you to stay still!
+
+Erin breathes hard as Sheriff Hoyt comes back down
+and ties her feet to the chair. He sits up and wipes
+his hands.
+
+		SHERIFF
+That's a good girl.
+
+Erin tries to kick and scream but we only hear her
+muffled cries. Erin looks up and sees Drayton wheel
+himself into the dining room. Erin looks up as
+Drayton makes his way to the side of the table, next
+to Erin. Leatherface makes his way into the room from
+the hallway. He joins Drayton at the table. Sheriff
+Hoyt walks into the room, holding a small
+pocketknife. Sheriff Hoyt smiles and makes his way
+over towards Erin. Henrietta and Jedidiah follow
+them.
+
+		SHERIFF
+Now this will only hurt for a second.
+
+Sheriff Hoyt unties Erin's hands and grabs one of
+Erin's fingers. He brings the knife closer and closer
+towards her finger. Everyone laughs and smiles.
+Leatherface jumps up with excitement. Soon, the blade
+comes down and cuts Erin's finger! She groans and
+closes her eyes tight. Sheriff Hoyt holds her finger
+and brings it close to Drayton.
+
+		SHERIFF
+You were hungry, weren't you, Grandpa?
+
+Drayton smiles as Erin's finger comes closer and
+closer to his mouth. Soon, her finger is in Drayton's
+mouth. He sucks on the blood for a long time. Erin
+leans her head back and continues to moan and scream.
+Everyone laughs and leans their heads back.
+Leatherface jumps up and down and claps his hands
+together. From Erin's point of view, we see
+everything slowly fade out and the laughter continue
+in the background. We slowly fade to a white screen
+and then
+
+FLASH CUT TO:
+
+A DARK SCREEN.
+
+Then, the sliding door opens, and we suddenly find
+ourselves in the
+
+INT. DARK ROOM_OLD HOUSE_(CONT.)
+
+The sliding door opens and we see Leatherface holding
+Erin by the waist. The ropes are off of her, and the
+sock is out of her mouth. She screams as Leatherface
+throws her down into the dark room. Erin goes
+toppling down the stairs and suddenly falls onto the
+ground. The room becomes dark after Leatherface slams
+the skidding door shut. A small light can be seen
+spreading across Erin's closed eyes. We pan closer
+and closer towards her closed eye until it suddenly
+opens. She sits up and looks at the supposedly open
+window. As she looks over to it, she sees that wooden
+planks have covered it up. She sighs and looks at her
+finger. A small amount of blood pours from it. She
+cries and closes her eyes. She looks around and sees
+the closed door to the left. She stands up and opens
+it, almost running smack into one of the hooks. She
+turns around and shuts the door. As she looks around,
+she sees Kemper's body lying face down on the ground,
+his arms outstretched. She cries and sits down next
+to him. She takes him and holds him tight. Soon, he
+slowly moves. He isn't dead! Erin looks at his face.
+His eyes slowly open and Erin smiles happily.
+
+
+		ERIN
+Kemper! Kemper!
+
+		KEMPER
+Where the hell are we...
+
+		ERIN
+Kemper, we have to get the fuck out of here now!
+
+		KEMPER
+I can barley move...
+
+		ERIN
+I'll help you, just get up! We need to leave, now!
+
+Kemper tries to stand up, but quickly falls to his
+knees.
+
+		ERIN
+Oh, god, Kemper...
+
+		KEMPER
+I can't walk...
+
+Erin looks around, but sees nothing that can help
+Kemper.
+
+		ERIN
+SHIT!
+
+Footsteps can be heard above them. They both stay
+silent as the footsteps continue to be heard. From
+above, we hear Sheriff Hoyt screaming at someone. It
+slowly fades out and Erin turns back to Kemper.
+
+		ERIN
+We need to get you out of here...
+
+		KEMPER
+How?
+
+		ERIN
+I don't know...There's no way except for the front...
+
+		KEMPER
+Shit...
+
+Kemper can barely talk. He sighs and closes his eyes.
+
+		ERIN
+Kemper, no! Just stay with me, okay? You're not going
+to leave me! Just stay the fuck awake!
+
+		KEMPER
+I can try but I doubt anything will happen...I can't
+feel my legs...
+
+Erin pulls her hair back and starts to cry.
+
+		ERIN
+Shit...
+
+Erin stands up and looks around. She opens the door
+and looks around for anything to break the wooden
+boards from the window. She finally finds a large
+hook and runs over to the window with it. She jabs it
+into the crack of the boards and tries and pull at it
+hard. The boards do not come loose.
+
+		ERIN
+SHIT!
+
+Erin throws down the hook and looks on the table for
+anything else she can find. She spots a hammer and
+grabs it. She runs back over to the window and slams
+the hammer on top of the boards. One of the boards
+suddenly come loose. She tugs on the board and it
+comes falling down to the floor. Two more are left,
+but it's still a small space. She smiles and does the
+same with the other boards. One of them comes falling
+down. There is one more left at the bottom of it. She
+sticks the hammer into it and it suddenly comes
+loose! She grabs it and throws it down, along with
+the hammer. She smiles and runs over to the dark
+room. She leans over to Kemper, whose eyes are half
+closed.
+
+		ERIN
+Kemper, I found a way out, but you need to stand up.
+You need to help me.
+
+		KEMPER
+I can try...
+
+Erin picks him up and they both make their way
+towards the window. He looks up and groans.
+
+		KEMPER
+I can't do this...
+
+		ERIN
+Kemper, don't do this! We need to get out of here
+now!
+
+Suddenly, there are many footsteps above them. Erin
+pulls Kemper up towards the window.
+
+		ERIN
+COME ON!
+
+Kemper finally makes his way through the window. Erin
+pushes him out of the window. She looks back and
+hears the sliding door open.
+
+		ERIN
+Oh, shit...
+
+Erin jumps up and pushes herself through the window.
+We watch as Sheriff Hoyt runs down the stairs. He
+sees her and runs towards her. She is almost out the
+window.
+
+		SHERIFF
+Henrietta! GET IN HERE NOW!
+
+Sheriff Hoyt reaches for her feet but misses just as
+she makes her way out of the window.
+
+		SHERIFF
+Damnitt!
+
+Sheriff Hoyt runs up the stairs.
+
+EXT. BACKYARD_OLD HOUSE_RAINING_(CONT.)
+
+Erin and Kemper lie down on the wet ground. Erin
+stands up and grabs Kemper by the waist.
+
+		ERIN
+WE NEED TO GO!
+
+Erin grabs Kemper and they start to run into the
+field.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Sheriff Hoyt runs through the sliding door and looks
+around. He makes his way into the kitchen and comes
+back out holding a rifle.
+
+		SHERIFF
+Henrietta! Stay in here with your brother! I'm gonna
+bring home the dinner...
+
+Sheriff Hoyt runs past the CAMERA and runs through
+the front door.
+
+EXT. FIELD_OLD HOUSE_RAINING_(CONT.)
+
+Erin still holds Kemper, who can barely walk, but
+they are somewhat far away from the house. Sheriff
+Hoyt runs out and stands at the porch. The rain
+continues to fall.
+
+		SHERIFF
+GET BACK HERE!
+
+Sheriff Hoyt fires a shot into the air. Erin and
+Kemper duck. They both stand up and continue to try
+and run. Sheriff Hoyt runs towards the police car and
+steps inside. He starts it up and drives after them.
+Erin and Kemper fall down into the field, and the
+police car drives right past them. Sheriff Hoyt did
+not see them.
+
+		KEMPER
+WHAT THE FUCK DO WE DO-
+
+		ERIN
+Just stay down...We're going to get the hell out of
+here.
+
+		JANE
+(O.S.)
+Hell no you're not.
+
+They both look up to see Jane standing still,
+smiling. She reaches down and grabs both of them by
+the shoulders.
+
+		JANE
+HEY, POP!
+
+The police car stops and turns around, the headlights
+flashing on Erin and Kemper.
+
+		JANE
+I got 'em!
+
+		ERIN
+NO! LET ME GO!
+
+		JANE
+You want him, pop?
+
+Sheriff Hoyt sticks his head out of the window and
+smiles.
+
+		SHERIFF
+Drop the boy.
+
+Jane drops him and the police car zooms towards his
+body.
+
+		ERIN
+No!
+
+Jane grabs Erin and runs back into the house. Kemper
+looks up as the headlights come closer and closer to
+him. From Kemper's point of view, we watch until the
+headlights cover the entire screen. We watch as Jane
+and Erin run back into the house. Kemper's screams
+can be heard in the background.
+
+		ERIN
+(O.S.)
+NO!
+
+Sheriff Hoyt laughs as he drives back towards the
+house.
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Jane holds Erin and drags her into the dining room.
+She kicks and screams wildly but cannot get loose.
+
+INT. DINING ROOM_OLD HOUSE_(CONT.)
+
+Jane sets Erin in the seat and grabs a piece of rope.
+Erin suddenly runs out of the chair and runs out of
+the dining room!
+
+		JANE
+WHERE THE FUCK DO YOU THINK YOU'RE GOING?
+
+INT. HALLWAY_OLD HOUSE_(CONT.)
+
+Erin runs towards the front door and stops right in
+her tracks as Sheriff Hoyt stands in front of her.
+
+		SHERIFF
+You're not going anywhere.
+
+He laughs as Erin turns around to see Jane,
+Henrietta, Jedidiah, Drayton, and Leatherface
+standing there. They all laugh as Erin back away. She
+looks up and starts to run up the stairs.
+
+		SHERIFF
+FOLLOW HER YOU FOOL!
+
+Leatherface runs up the stairs, screaming.
+
+INT. UPSTAIRS_OLD HOUSE_(CONT.)
+
+Erin looks around and makes her way into an old room.
+
+INT. OLD ROOM_OLD HOUSE_(CONT.)
+
+Erin runs inside and shuts the door. She locks it and
+looks around. There is nothing in the room except
+feathers lying all over the place and old bones. A
+loud bang can be heard behind her. Leatherface is
+trying to get in. She looks around and sees a closed
+glass window. She looks at the door and then back at
+the window. She runs towards the window and breaks
+through it!
+
+EXT. BACKYARD_OLD HOUSE_(CONT.)
+
+We watch as Erin comes flying through the window in
+slow motion. She screams as she comes falling down on
+all the wet sheets. She stays till for a second...Is
+she dead? Suddenly, she moves and looks up. The
+window is completely broken. She stands up and runs
+over to the front of the house. She stops and ducks
+as she sees Sheriff Hoyt running towards his car.
+
+		SHERIFF
+I'll be back! You get her, do you hear me!?
+
+Erin stays silent until the police car drives off.
+She stands up and runs into the backyard. She looks
+around and sees the old cars. She runs over towards
+them and opens the door to an old truck.
+
+INT. TRUCK_BACKYARD_OLD HOUSE_RAINING_(CONT.)
+
+Erin falls to the ground of the truck and stays
+completely silent. She breathes deep and watches as
+the rain continues to pound hard on the glass
+windshield. She breathes hard and closes her eyes
+tight. She looks around at the dark truck. Noises can
+be heard from outside. She starts to sit up and looks
+out the window. Nothing seems to be wrong. She starts
+to open the door when suddenly Leatherface appears
+from outside the window! Erin screams and steps back.
+Leatherface holds the large chainsaw and jabs at the
+large door. She steps back and makes her way to the
+driver's door. She tries to open it, but it seems to
+be stuck!
+
+		ERIN
+OH, GOD, NO!
+
+The chainsaw continues as Erin tries harder and
+harder to open the door. Finally, it busts open and
+she steps out.
+
+EXT. TRUCK_BACKYARD_OLD HOUSE_RAINING_(CONT.)
+
+Erin runs back towards the house and looks back to
+see Leatherface chasing after her! She turns the
+corner to the house and makes her way towards the
+field.
+
+EXT. FIELD_RAINING_(CONT.)
+
+Erin screams and runs faster and faster into the
+field. She looks back and sees Leatherface running
+towards her, not stopping. She cries and cries, but
+nothing is helping.
+
+		ERIN
+SOMEBODY HELP ME!
+
+She screams and runs into the field until she can
+barely see the house anymore. She looks around and
+sees that she can no longer see or hear Leatherface
+or his chainsaw. She stops and looks around. She
+starts to walk slower into the field. She looks back
+and starts to run again.
+
+INT. POLICE CAR_LONELY COUNTRY ROAD_RAINING_ (CONT.)
+
+Sheriff Hoyt drives faster and faster into the road.
+He looks around and sighs deeply. An angry frown
+spreads across his face.
+
+EXT. VAN_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Erin can be seen running through the field and stops,
+out of breath. She looks up and sees the van. She
+runs towards it and slides open the wet door. She
+steps in, shuts the door, and locks it.
+
+INT. VAN_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Erin leans over to the mattress and cries into it.
+She bangs on the side of the door in guilt. She leans
+down and presses her back against the door. Suddenly,
+a loud bang can be heard behind her. She jumps and
+leans back over to the mattress. She cries as
+Leatherface tries to get in the van with the
+chainsaw. She cries and cries and covers her ears.
+Sparks fly as the chainsaw almost opens the door. As
+they do, Erin covers her ears and cries. She turns
+and opens the driver's door and runs out, not
+shutting it behind her.
+
+EXT. LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Erin runs down the road, followed by a far away
+Leatherface. She continues to scream and run down the
+road. She runs down the road more and more until she
+sees a small car parked on the side of the road. She
+runs towards the car and continues to look back.
+Leatherface is far away, but is coming closer and
+closer towards her.
+
+		ERIN
+HELP ME!
+
+INT. CAR_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Inside, an old chubby woman of about forty-five sits
+in the driver's seat, smoking a cigarette and tuning
+the radio. Suddenly, Erin bashes on the side of the
+passenger's window. The woman jumps and sees her.
+
+		ERIN
+PLEASE! OPEN THE DOOR!
+
+		WOMAN
+(trying to calm her down)
+Alright, alright!
+
+The woman opens the door and Erin steps inside and
+slams the door. She locks it quickly.
+
+		WOMAN
+What happen-
+
+		ERIN
+Just go! Please!
+
+		WOMAN
+What's the hurry?
+
+		ERIN
+DRIVE! PLEASE!
+
+The woman looks at Erin and then starts the car.
+
+EXT. CAR_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+The car goes zooming down the road just as
+Leatherface approaches it. It zooms down until it
+becomes a small speck. Leatherface screams and waves
+the chainsaw in the air.
+
+INT. CAR_LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+Erin looks back and watches at Leatherface becomes a
+small speck. She turns back and looks ahead at the
+road. The woman sits still and drives. She wears very
+thick glasses and dark lipstick.
+
+		WOMAN
+What was going on with you back there?
+
+		ERIN
+(trying not to cry)
+It's a long story, I just want to go home.
+
+		WOMAN
+How about the nearest police station?
+
+		ERIN
+I dunno...
+
+		WOMAN
+I have a house just a little further up here. You can
+rest there for a second while I call the police. Does
+that sound alright?
+
+Erin nods. There is silence after that.
+
+		ERIN
+Thanks...for the ride...
+
+		WOMAN
+I always try to help someone. It's my job.
+
+The woman smiles and Erin half smiles. She looks out
+the window and covers her forehead. She is trying
+hard not to cry.
+
+		WOMAN
+It's alright, dear. You can just tell me everything
+that happened when we get to the house.
+
+		ERIN
+How much longer is it?
+
+		WOMAN
+Just a few minutes. You know not many people live out
+here. It's just like our own little town. There's so
+little of what you can do.
+
+Erin stays silent and listens.
+
+		WOMAN
+I can't even imagine what happened to you...But I
+promise you that I will take care of you.
+
+Erin nods and closes her eyes. She cries silently and
+breathes deep.
+
+EXT. CAR_LONELY COUNTRY ROAD_RAINING (CONT.)
+
+We watch as the car makes its way closer towards a
+small house on a hill. Lights from inside of it blare
+on. The car suddenly turns a corner and we watch as
+it finally makes it way to the house.
+
+INT. HOUSE_RAINING_(CONT.)
+
+The woman and Erin walk inside the house quietly.
+Erin looks around to see that the house is very warm
+and cozy. Different kinds of sculptures are
+everywhere. A warm fire burns in the corner in a
+furnace. Erin runs over it and warms herself up.
+
+		WOMAN
+Oh, dear, come back here, I'll get you a warm
+blanket. Would you like some tea?
+
+		ERIN
+No...No thank you...
+
+The woman nods and disappears into the back of the
+house. Erin turns back towards the furnace and warms
+herself up. She starts to cry silently. The woman
+comes back and wraps the blanket around Erin's
+shoulders. She then walks over to a large rocking
+chair and sits in it, grabbing a ball of yarn and
+some needles. Erin looks at her and then back at the
+furnace.
+
+		WOMAN
+Do you mind telling me why you were out here in the
+rain? And alone, no less! Why if I was stuck out
+there I'd at least bring a friend.
+
+Erin stays silent. She looks at the woman and then at
+the furnace. She looks down and wipes her tears.
+
+We fade to a clock, which moves from one time to a
+half of an hour later. The CAMERA turns back to Erin,
+who still lies down on the floor. The woman shakes
+her head.
+
+		WOMAN
+Tsk, tsk, tsk, tsk, tsk.
+
+Erin looks down and looks at the furnace.
+
+		WOMAN
+That is just unbelievable. How could something like
+that happen to such a nice and pretty girl like you?
+
+Erin stays silent.
+
+		WOMAN
+Oh...my, my, my, my my...Are you sure you wouldn't
+like any tea? I make the best tea in the county.
+
+		ERIN
+I...I just want to go home.
+
+		WOMAN
+I understand. You can stay here until I get you to
+the nearest police station. I'm going to call the
+police. Just wait here.
+
+The woman stands up and makes her way into the next
+room. Erin sighs and leans over to the floor. She
+closes her eyes and falls asleep on the floor. The
+woman returns later to see her on the floor. The
+woman smiles and sits back down in her chair.
+
+EXT. LONELY COUNTRY ROAD_RAINING_(CONT.)
+
+We watch as a familiar police car makes its way
+towards the tea lady's house.
+
+INT. HOUSE_RAINING_(CONT.)
+
+Erin stays silent, sleeping on the floor. A loud
+knock can be heard from behind the front door. The
+tea lady comes out from behind a door and makes her
+way towards the front door. She looks at Erin, who
+stays silent. The tea lady opens the door and the
+CAMERA zooms in on
+
+SHERIFF HOYT!
+
+He smiles and takes his hat off to the tea lady.
+
+		SHERIFF
+Hello, Kathryn. How are you this evening?
+
+		WOMAN
+I'm just fine, Sheriff. She's right in here if you
+follow me.
+
+The woman shuts the door and Sheriff Hoyt makes his
+way towards the living room, where Erin continues to
+sleep. From the point of view of Erin, we watch as
+she slowly opens her eyes to see Sheriff Hoyt
+standing up looking down at her.
+
+		SHERIFF
+Hello, little lady.
+
+Erin stands up and screams. She slowly makes her way
+to the corner of the room.
+
+		SHERIFF
+Now hold on, now. You get your ass back here right
+now!
+
+		ERIN
+No...NO!
+
+Erin screams and runs through the house into the
+
+INT. HALLWAY_HOUSE_(CONT.)
+
+She runs through the hallway, looking around for a
+place to hide. She turns and sees an opens door
+leading into an empty room. She runs into it and
+slams the door in front of the CAMERA.
+
+INT. BEDROOM_HOUSE_(CONT.)
+
+Erin looks around and tries to lock it, but there is
+no lock! She cries and falls onto the ground.
+Footsteps can be heard from the hallway. She cries
+and crawls towards the corner. Slowly, the door
+opens, and Sheriff Hoyt stands there with the tea
+lady. He smiles and wags his pointer finger at her.
+
+		SHERIFF
+You naughty girl. You get back here right now!
+
+Erin screams as Sheriff Hoyt grabs her and covers his
+hand over her mouth. She screams and kicks wildly and
+we watch as they all walk out of the room. The woman
+shuts the door quietly.
+
+INT. LIVING ROOM_HOUSE_(CONT.)
+
+Sheriff Hoyt holds Erin who continues to scream while
+the tea lady opens the front door for them.
+
+		SHERIFF
+Thank you again, Kathryn.
+
+		WOMAN
+Oh, it's my pleasure, Sheriff Hoyt. Come back
+sometime and have a cup of tea!
+
+		SHERIFF
+You know I will!
+
+		WOMAN
+Goodbye!
+
+Sheriff and Erin run through the door while the tea
+lady shuts it. She smiles and starts to hum.
+
+EXT. POLICE CAR_HOUSE_RAINING_(CONT.)
+
+Sheriff Hoyt still holds Erin will all his might as
+she continues to kick and scream. He opens the police
+car door and throws her inside. She tries to open it
+to get out but can't. Sheriff Hoyt laughs and makes
+his way to the driver's seat. He steps inside and
+shuts the door.
+
+INT. POLICE CAR_HOUSE_RAINING_(CONT.)
+
+Sheriff Hoyt smiles as Erin tries to open the door.
+She pounds on it and screams wildly.
+
+		SHERIFF
+Now you shut the fuck up before I go back there and
+teach you a lesson you'll never forget!
+
+		Erin
+WHY ARE YOU DOING THIS!?
+
+		SHERIFF
+That's for you to decide. You see, I don't make the
+rules. I just follow them!
+
+Erin screams and kicks at the door. Nothing helps.
+Sheriff Hoyt starts the car and laughs at Erin, who
+continues to scream and kick wildly.
+
+EXT. POLICE CAR_HOUSE_RAINING_(CONT.)
+
+We watch as Erin pounds on the window and the car
+drives off into the lonely country road.
+
+EXT. OLD HOUSE_RAINING_LATER
+
+The police car is already parked outside and the rain
+continues to pour down faster and faster.
+
+INT. DINING ROOM_OLD HOUSE_(CONT.)
+
+The dining room in empty, and the only person at the
+table is Erin, who sits in front of the table, all
+tied up with tape over her mouth. Her eyes are
+closed, and her head is moving back and forth. She
+slowly opens her eyes and looks around. She starts to
+scream but we can only hear her muffled cries.
+
+From the kitchen door, Jedidiah walks in with a large
+stick. He walks over to Erin and smiles. Erin starts
+to cry. Jedidiah smiles once again and starts to poke
+Erin with the stick. She cries and Jedidiah starts to
+laugh. Then, he starts to hit her. A large tear rolls
+down her cheek. Jedidiah stops poking and hitting her
+and drops the stick. He looks down and sees Erin's
+belly button piercing. He looks at it and touched it
+with his finger. He doesn't say a word but smiles.
+
+		JEDIDIAH
+Hey pop!
+
+From the kitchen door comes Sheriff Hoyt, wiping his
+bloody hands with a cloth. He smiles to his son and
+walks over towards him.
+
+		SHERIFF
+What is it, son?
+
+		JEDIDIAH
+Look!
+
+He points to the piercing and Sheriff Hoyt reaches
+his finger at it. Erin starts to cry.
+
+		SHERIFF
+Oh my! This is some hole you got there!
+
+Suddenly, Sheriff Hoyt starts to tug at it! Erin
+closes her eyes and cries more. We hear her muffled
+cries from behind the tape. Sheriff Hoyt pulls harder
+and harder on it, until it almost looks like it is
+about to rip off. Jedidiah smiles and so does Sheriff
+Hoyt. Erin cries as Sheriff Hoyt lets it go. Erin's
+sighs can be heard from behind the tape.
+
+Sheriff Hoyt stands up and puts his arms to his
+sides.
+
+		SHERIFF
+Now what are we going to do with you?
+
+		JEDIDIAH
+Oh please pop can I play with her!?
+
+		SHERIFF
+No, son! She's our guest! And she hasn't even had the
+proper dinner yet!
+
+Erin shakes her hand and cries more as she tries to
+escape the clutches of the rope.
+
+		JEDIDIAH
+Hey! Why don't we go get grandpa! He'll know what to
+do!
+
+		SHERIFF
+Great idea, Jedidiah! (to Erin) Grandpa's the best
+damn killer in the entire county! He'll know exactly
+how to handle you!
+
+Erin screams as Jedidiah and Sheriff Hoyt make their
+way back inside the kitchen. Moments pass, and we see
+Sheriff Hoyt roll Drayton in from his wheelchair.
+Jedidiah, Henrietta, the baby in her clutches, Jane,
+and Leatherface, who wears a new mask, follow them
+all. This time, it is more like a woman's face.
+Makeup covers it entirely. Jedidiah carries a very
+large silver bucket. It is bigger then him. He sets
+it down on the floor and Sheriff Hoyt unties Erin. He
+pulls the tape off of her mouth. She tries to escape,
+but is stopped by Henrietta.
+
+		HENRIETTA
+Oh no you don't! I got her pop!
+
+Sheriff Hoyt grabs her by the neck and pulls her face
+towards the empty bucket.
+
+		SHERIFF
+Jedidiah, go get the hammer from the kitchen!
+Grandpa's going to do a little killing tonight!
+
+Jedidiah nods and runs into the kitchen. Leatherface
+jumps up and down with excitement. Moments pass and
+Jedidiah runs in with the hammer. He hands it to
+Drayton.
+
+		SHERIFF
+Now remember, grandpa, hit her hard.
+
+		DRAYTON
+I know what I'm doing you fool!
+
+Sheriff holds Erin head into the bucket, his hand
+covering her mouth. She can't scream. Drayton raises
+the hammer in the air and swings it down towards
+Erin, but misses. The hammer falls into the bucket.
+
+		JANE
+Just try again, grandpa!
+
+Jane hands the hammer to Drayton, who nods. The
+hammer wiggles from side to side from Drayton's
+shaking hands. They all laugh and jump up with
+excitement.
+
+		SHERIFF
+Hit her, grandpa! Hit her!
+
+Drayton raises the hammer once again, but misses
+again. It falls into the bucket. Sheriff Hoyt let's
+go of Erin's mouth and grabs the hammer. She screams
+loudly.
+
+		ERIN
+NO! PLEASE!
+
+		SHERIFF
+Hit her hard, grandpa!
+
+		DRAYTON
+I know what I'm doing!
+
+		JANE
+No you're not! Let's me do it!
+
+		HENRIETTA
+No let me do it!
+
+		JEDIDIAH
+I never get to hit anyone! Please, daddy! Please!
+
+They all argue and fight over the hammer. Sheriff
+Hoyt let's go of Erin, who stands still for a second,
+and then looks up to see a window in the dining room.
+She stands up and runs towards it! Everyone watches
+as she busts through the glass!
+
+EXT. OLD HOUSE_SUNRISE_(CONT.)
+
+The rain has stopped, and Erin lies face first in the
+wet mud. She stands up and looks back to see the
+white curtains from the broken window sway back and
+forth. She stands up and runs into the field. We
+watch her as she disappears. We look back at the
+porch to see the door swing open, and Sheriff Hoyt
+stands there. He starts to run after her, followed by
+Leatherface, who holds the wild chainsaw. He turns it
+on and follows Sheriff Hoyt down into the field.
+
+EXT. FIELD_LONELY COUNTRY ROAD_(CONT.)
+
+Erin screams and cries as she looks back to see
+Sheriff Hoyt and Leatherface running after her from a
+far away distance. The sun sets behind the house.
+
+EXT. LONELY COUNTRY ROAD_SUNRISE_(CONT.)
+
+It is very quiet. Soon, Erin runs into the road
+through the field and starts to run down the road.
+She looks back and sees Sheriff Hoyt running directly
+after her! She screams and watches as Leatherface
+rises from the field, cutting the grass with the mad
+chainsaw. She looks back to see a large red truck
+making its way towards her! She steps in front of it
+and waves her hands.
+
+		ERIN
+PLEASE! HELP ME!
+
+The truck comes to a stop and Erin runs to the side
+of the truck. She tries to open the door, but can't!
+
+		ERIN
+NO!
+
+Leatherface catches up with Sheriff Hoyt, who stops
+running and looks up and Leatherface and Erin.
+
+		SHERIFF
+GET HER, LEATHER! GET HER!
+
+Erin runs down the road, followed by the truck
+driver, who steps out of the truck with a large
+hammer. Erin and the truck driver run down the road,
+followed by an angry Leatherface. The truck driver
+stops and looks back at Leatherface. He throws the
+large hammer at his head and watches as he falls to
+the ground. The chainsaw falls onto Leatherface's
+leg, cutting into the flesh! He screams and stands
+up, running after the truck driver. He catches up to
+him and cuts through his stomach! Blood falls
+everywhere! Erin looks back and screams!
+
+		ERIN
+NO!
+
+Leatherface lets the truck driver's body fall to the
+ground. He looks up and chases after Erin, who
+screams madly! She looks back to see a small truck
+making its way towards her! She smiles but continues
+to scream.
+
+		ERIN
+PLEASE! STOP!
+
+The truck stops, and Erin climbs into the back of it,
+followed by Leatherface, who tries to catch her, but
+can't. Erin pounds on the outside window of the truck
+while she still sits in the back of it.
+
+		ERIN
+GO! GO!
+
+The truck drives faster and faster into the sunrise.
+Erin screams and laughs at the same time. She smiles
+and watches as Leatherface becomes a small speck. As
+we go back to Leatherface, who stands in the road, he
+screams and waves the chainsaw in the air! He screams
+and screams and screams. The chainsaw waving through
+the air madly. He screams once more and we
+
+CUT TO BLACK.
+
+INT. OBSERVATION ROOM_TRAVIS COUNTY POLICE
+STATION_(CONT.)
+
+Erin sits still, and the policeman stops the tape
+recorder. He sighs and stands up.
+
+		POLICEMAN
+Thank you, Erin. A policeman will be taking you home
+shortly.
+
+Erin nods and watches as the policeman walks out of
+the room. She stays silent, and then screams wildly.
+
+INT. HALLWAY_(CONT.)
+
+The policeman stands in front of the hallway, holding
+the tape recorder. The second policeman walks up to
+him.
+
+		POLICEMAN #2
+That took longer than expected. Did she talk?
+
+		POLICEMAN
+Oh yeah, and I got the whole thing on tape. Take this
+to Officer Hooper please.
+
+The policeman hands the tape recorder to the second
+policeman, who runs down the hallway. The policeman
+stands still and covers his forehead.
+
+		POLICEMAN
+I need someone to take this girl home. Any
+volunteers?
+
+		VOICE
+(O.S.)
+I'll do it, sir.
+
+		POLICEMAN
+Great. Just make sure you get her home safe.
+
+The policeman pats the policeman on the back and
+walks way.
+
+		VOICE
+(O.S.)
+Oh I will, sir.
+
+The CAMERA moves to see that it is
+
+SHERIFF HOYT!
+
+He smiles and walks towards the room.
+
+		SHERIFF
+Oh believe me...I will.
+
+He smiles once more and walks inside the room,
+letting the door slam in front of the CAMERA.
+
+CUT TO BLACK.
+
+Erin's screams can be heard in the background as the
+MUSIC RISES and CREDITS ROLL.
+
+
+97
+
+
+
+
+
+
+
+
+<!--
+
+Leave the following, as this will format your text above to look nice.
+
+-->
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js"></script><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
